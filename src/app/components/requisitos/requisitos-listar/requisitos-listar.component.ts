@@ -1,9 +1,10 @@
-import { Component , OnInit } from '@angular/core';
+import { Component , OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table'
 import { Requisito } from 'src/app/model/requisito';
 import { RequisitoService } from 'src/app/service/requisito.service';
 import { RequisitosDialogoComponent } from './requisitos-dialogo/requisitos-dialogo.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class RequisitosListarComponent implements OnInit
   dataSource: MatTableDataSource<Requisito> = new MatTableDataSource();
   idMayor: number = 0
   displayedColumns: string[] = ['id', 'requisito', 'accion01','acciones2']
+  @ViewChild(MatPaginator,{ static:true }) paginator!: MatPaginator;
+
 
   constructor(private rS: RequisitoService , private dialog: MatDialog) {
 
@@ -25,10 +28,12 @@ export class RequisitosListarComponent implements OnInit
   ngOnInit(): void {
     this.rS.list().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
 
     this.rS.getList().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
 
     this.rS.getConfirmDelete().subscribe(data => {

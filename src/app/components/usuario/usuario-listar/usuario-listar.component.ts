@@ -1,9 +1,10 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table'
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UsuarioDialogoComponent } from './usuario-dialogo/usuario-dialogo.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-usuario-listar',
@@ -15,15 +16,18 @@ export class UsuarioListarComponent implements OnInit {
   dataSource: MatTableDataSource<Usuario> =new MatTableDataSource();
   idMayor: number = 0;
   displayedColumns: string[]=['codigo','dni','usuario','nombre','email','contraseña','tipo','key','accion01','accion02']
+  @ViewChild(MatPaginator,{ static:true }) paginator!: MatPaginator;
   constructor(private uS: UsuarioService, private dialog: MatDialog){
 
   }
   ngOnInit(): void {
     this.uS.list().subscribe(data=>{
       this.dataSource= new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
     this.uS.getList().subscribe(data=>{
       this.dataSource=new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
     this.uS.getConfirmDelete().subscribe(data => {
       data == true ? this.eliminar(this.idMayor) : false;

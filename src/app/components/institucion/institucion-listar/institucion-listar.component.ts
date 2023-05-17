@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Institucion_Educativa } from 'src/app/model/institucion';
 import { InstitucionService } from 'src/app/service/institucion.service'
 import { InstitucionDialogoComponent } from './institucion-dialogo/institucion-dialogo.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-institucion-listar',
@@ -14,16 +15,19 @@ export class InstitucionListarComponent implements OnInit{
 
   dataSourceInstitucion: MatTableDataSource<Institucion_Educativa>=new MatTableDataSource();
   idMayor: number = 0
-  displayedColumnsInstitucion: string[] = ['id', 'nombre', 'accion01', 'accion02']
+  displayedColumnsInstitucion: string[] = ['id', 'nombre', 'correo', 'accion01', 'accion02']
+  @ViewChild(MatPaginator,{ static:true }) paginator!: MatPaginator;
 
   constructor(private institucionService: InstitucionService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.institucionService.List().subscribe(data=> {
       this.dataSourceInstitucion = new MatTableDataSource(data);
+      this.dataSourceInstitucion.paginator = this.paginator;
     })
     this.institucionService.GetList().subscribe(data=> {
       this.dataSourceInstitucion = new MatTableDataSource(data)
+      this.dataSourceInstitucion.paginator = this.paginator;
     })
     this.institucionService.GetConfirmDelete().subscribe(data=>{
       data== true? this.eliminar(this.idMayor) : false;

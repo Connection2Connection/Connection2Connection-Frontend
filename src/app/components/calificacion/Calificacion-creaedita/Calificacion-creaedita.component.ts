@@ -36,7 +36,9 @@ export class CalificacionCreaeditaComponent implements OnInit {
     this.Calificacion.id_Estudiante = this.form.value['id_Estudiante'];
     this.Calificacion.Calificacion = this.form.value['Calificacion'];
     if (this.form.value['id_Estudiante'].length > 0 &&
-      this.form.value['Calificacion'].length > 0) {
+      this.form.value['Calificacion'].length > 0 &&
+      this.form.value['Calificacion'] >= 0 &&
+      this.form.value['Calificacion'] <= 5) {
 
       if (this.edicion) {
         this.aS.update(this.Calificacion).subscribe((data) => {
@@ -53,7 +55,7 @@ export class CalificacionCreaeditaComponent implements OnInit {
       }
       this.router.navigate(['Calificacion']);
     } else {
-      this.mensaje = "Complete los campos requeridos!!!";
+      this.mensaje = "Ocurrio un problema en el registro, revisa lo que ingresaste";
     }
   }
 

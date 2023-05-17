@@ -1,9 +1,10 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog'
 import { Carrera } from 'src/app/model/carrera';
 import { CarreraService } from 'src/app/service/carrera.service';
 import { CarreraDialogoComponent } from './carrera-dialogo/carrera-dialogo.component';
+import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-carrera-listar',
   templateUrl: './carrera-listar.component.html',
@@ -15,6 +16,7 @@ export class CarreraListarComponent implements OnInit {
   dataSource:MatTableDataSource<Carrera> = new MatTableDataSource();
   idMayor:number=0
   displayedColumns: string[]=['id','nombre_Carrera','accion01','accion02']
+  @ViewChild(MatPaginator,{ static:true }) paginator!: MatPaginator;
   constructor(private aS:CarreraService, private dialog:MatDialog){
 
   }
@@ -22,9 +24,11 @@ export class CarreraListarComponent implements OnInit {
   ngOnInit(): void {
     this.aS.list().subscribe(data=>{
       this.dataSource= new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
     this.aS.getList().subscribe(data=>{
         this.dataSource=new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
 
     })
     this.aS.getConfirmDelete().subscribe(data => {

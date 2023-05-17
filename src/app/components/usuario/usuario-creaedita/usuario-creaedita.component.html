@@ -53,9 +53,9 @@
         </mat-select>
       </mat-form-field>
       <br>
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" [hidden]="this.form.value['tipo'] != 'admin'">
         <mat-label>Key</mat-label>
-        <input matInput required placeholder="123" formControlName="key">
+        <input matInput required placeholder="Ingrese clave" formControlName="key">
       </mat-form-field>
       <br>
       <div style="text-align: center;">

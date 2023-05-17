@@ -87,7 +87,7 @@ export class UsuarioCreaeditaComponent implements OnInit {
           })
         })
       }
-      this.router.navigate(['login']);
+      this.router.navigate(['usuarios']);
     } else {
       this.mensaje = "Complete los campos requeridos ¬¬";
     }
