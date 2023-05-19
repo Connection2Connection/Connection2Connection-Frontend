@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { Router, ActivatedRoute, Params } from '@angular/router'
@@ -10,7 +10,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router'
   styleUrls: ['./usuario-creaedita.component.css']
 })
 export class UsuarioCreaeditaComponent implements OnInit {
-  registrarUsuario: FormGroup;
   form: FormGroup = new FormGroup({});
   u: Usuario = new Usuario();
   mensaje: string = "";
@@ -20,20 +19,10 @@ export class UsuarioCreaeditaComponent implements OnInit {
 
   constructor(
     private uS: UsuarioService,
-    private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router
 
   ) {
-    this.registrarUsuario = this.fb.group({
-      dni: ['', [Validators.required]],
-      usuario: ['', [Validators.required]],
-      nombre: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      tipo: ['', Validators.required],
-      key: [''],
-    });
   }
 
   ngOnInit(): void {
@@ -53,13 +42,6 @@ export class UsuarioCreaeditaComponent implements OnInit {
       key: new FormControl()
     });
   }
-  registrar() {
-    const email = this.registrarUsuario.value.email;
-    const password = this.registrarUsuario.value.password;
-    const repetirPassowrd = this.registrarUsuario.value.repetirPassword;
-
-    console.log(this.registrarUsuario);
-  }
 
   aceptar(): void {
     this.u.id= this.form.value['id'];
@@ -70,7 +52,13 @@ export class UsuarioCreaeditaComponent implements OnInit {
     this.u.Contrasena_Usuario= this.form.value['contraseña'];
     this.u.Tipo_Usuario= this.form.value['tipo'];
     this.u.key= this.form.value['key'];
-    if (this.form.value['dni'].length > 0) {
+    if (this.form.value['dni'] && this.form.value['dni'].length > 0 &&
+    this.form.value['usuario'] && this.form.value['usuario'].length > 0 &&
+    this.form.value['nombre'] && this.form.value['nombre'].length > 0 &&
+    this.form.value['correo'] && this.form.value['correo'].length > 0 &&
+    this.form.value['contraseña'] && this.form.value['contraseña'].length > 0 &&
+    this.form.value['tipo'] && this.form.value['tipo'].length > 0 &&
+    this.form.value['tipo'] !== 'admin') {
 
       if (this.edicion) {
         //actualice
@@ -88,9 +76,34 @@ export class UsuarioCreaeditaComponent implements OnInit {
         })
       }
       this.router.navigate(['usuarios']);
-    } else {
-      this.mensaje = "Complete los campos requeridos ¬¬";
-    }
+    } else if(this.form.value['dni'] && this.form.value['dni'].length > 0 &&
+    this.form.value['usuario'] && this.form.value['usuario'].length > 0 &&
+    this.form.value['nombre'] && this.form.value['nombre'].length > 0 &&
+    this.form.value['correo'] && this.form.value['correo'].length > 0 &&
+    this.form.value['contraseña'] && this.form.value['contraseña'].length > 0 &&
+    this.form.value['tipo'] && this.form.value['tipo'].length > 0 &&
+    this.form.value['tipo'] == 'admin' &&
+    this.form.value['key'] && this.form.value['key'].length > 0){
+        if (this.edicion) {
+          //actualice
+          this.uS.update(this.u).subscribe(() => {
+            this.uS.list().subscribe(data => {
+              this.uS.setList(data);
+            })
+          })
+
+        } else {
+          this.uS.insert(this.u).subscribe(data => {
+            this.uS.list().subscribe(data => {
+              this.uS.setList(data);
+            })
+          })
+        }
+        this.router.navigate(['usuarios']);
+      }
+      else {
+        this.mensaje = "Complete los campos requeridos ¬¬";
+      }
   }
 
   init() {
