@@ -33,6 +33,11 @@
         <td mat-cell *matCellDef="let element"> {{element.nombre_Institucion}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="correo">
+        <th mat-header-cell *matHeaderCellDef> Correo </th>
+        <td mat-cell *matCellDef="let element"> {{element.correo_Institucion}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="accion01">
         <th mat-header-cell *matHeaderCellDef> Actualizar  </th>
         <td mat-cell *matCellDef="let element">
@@ -50,6 +55,11 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumnsInstitucion"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumnsInstitucion;"></tr>
     </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+    </mat-paginator>
   </div>
 </body>
 </html>

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Empresa } from 'src/app/model/empresa';
 import { EmpresaService } from 'src/app/service/empresa.service'
 import { EmpresaDialogoComponent } from './empresa-dialogo/empresa-dialogo.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-empresa-listar',
@@ -15,15 +16,18 @@ export class EmpresaListarComponent implements OnInit{
   dataSourceEmpresa: MatTableDataSource<Empresa>=new MatTableDataSource();
   idMayor: number = 0
   displayedColumnsEmpresa: string[] = ['id', 'nombre', 'descripcion', 'correo', 'accion01', 'accion02']
+  @ViewChild(MatPaginator,{ static:true }) paginator!: MatPaginator;
 
   constructor(private empresaService: EmpresaService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.empresaService.List().subscribe(data=> {
       this.dataSourceEmpresa = new MatTableDataSource(data);
+      this.dataSourceEmpresa.paginator = this.paginator;
     })
     this.empresaService.GetList().subscribe(data=> {
       this.dataSourceEmpresa = new MatTableDataSource(data)
+      this.dataSourceEmpresa.paginator = this.paginator;
     })
     this.empresaService.GetConfirmDelete().subscribe(data=>{
       data== true? this.eliminar(this.idMayor) : false;
