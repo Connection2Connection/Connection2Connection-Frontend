@@ -35,6 +35,7 @@ export class InstitucionCrudComponent implements OnInit{
   aceptar(): void {
     this.institucion.id= this.form.value['id'];
     this.institucion.nombre_Institucion= this.form.value['nombre_Institucion'];
+    this.institucion.nombre_Institucion= this.form.value['correo_Institucion'];
     if (this.form.value['nombre_Institucion'].length > 0){
 
       if (this.edicion) {
