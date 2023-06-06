@@ -49,7 +49,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'Institucion', component: InstitucionComponent, children: [
+    path: 'Institucion_Educativa', component: InstitucionComponent, children: [
       { path: 'Crear', component: InstitucionCrudComponent },
       { path: 'Edicion/:id', component: InstitucionCrudComponent }
     ]

@@ -28,14 +28,15 @@ export class InstitucionCrudComponent implements OnInit{
    })
    this.form = new FormGroup({
     id: new FormControl(),
-    nombre_Institucion: new FormControl()
+    nombre_Institucion: new FormControl(),
+    correo_Institucion: new FormControl()
   });
   }
 
   aceptar(): void {
     this.institucion.id= this.form.value['id'];
     this.institucion.nombre_Institucion= this.form.value['nombre_Institucion'];
-    this.institucion.nombre_Institucion= this.form.value['correo_Institucion'];
+    this.institucion.correo_Institucion= this.form.value['correo_Institucion'];
     if (this.form.value['nombre_Institucion'].length > 0){
 
       if (this.edicion) {
@@ -54,7 +55,7 @@ export class InstitucionCrudComponent implements OnInit{
         })
       }
 
-      this.router.navigate(['Institucion']);
+      this.router.navigate(['Institucion_Educativa']);
     } else {
       this.mensaje = "Complete todos los campos!";
     }
@@ -65,7 +66,9 @@ export class InstitucionCrudComponent implements OnInit{
       this.institucionService.ListId(this.id).subscribe(data => {
         this.form = new FormGroup({
           id: new FormControl(data.id),
-          nombre_Institucion: new FormControl(data.nombre_Institucion)
+          nombre_Institucion: new FormControl(data.nombre_Institucion),
+          correo_Institucion: new FormControl(data.correo_Institucion)
+
         })
       })
     }

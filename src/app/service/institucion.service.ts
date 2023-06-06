@@ -35,7 +35,8 @@ export class InstitucionService {
   }
 
   Update(institucion: Institucion_Educativa) {
-    return this.http.put(this.url + "/" + institucion.id, institucion);
+    //return this.http.put(this.url + "/" + institucion.id, institucion);
+    return this.http.put(this.url, institucion)
   }
   Delete(id: number) {
     return this.http.delete(`${this.url}/${id}`)
