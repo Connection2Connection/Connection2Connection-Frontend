@@ -35,7 +35,8 @@ export class EmpresaService {
   }
 
   Update(empresa: Empresa) {
-    return this.http.put(this.url + "/" + empresa.id, empresa);
+    //return this.http.put(this.url + "/" + empresa.id, empresa);
+    return this.http.put(this.url, empresa)
   }
   Delete(id: number) {
     return this.http.delete(`${this.url}/${id}`)
