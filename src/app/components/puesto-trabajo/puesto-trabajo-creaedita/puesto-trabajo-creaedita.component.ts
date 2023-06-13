@@ -29,16 +29,16 @@ export class PuestoTrabajoCreaeditaComponent implements OnInit{
    })
    this.form = new FormGroup({
     id: new FormControl(),
-    reclutador: new FormControl(),
-    requisitos: new FormControl(),
+    reclutadorId: new FormControl(),
+    requisitoId: new FormControl(),
   });
   }
 
   aceptar(): void {
     this.puesto_trabajo.id= this.form.value['id'];
-    this.puesto_trabajo.reclutador= this.form.value['reclutador'];
-    this.puesto_trabajo.requisitos = this.form.value['requisitos'];
-    if (this.form.value['reclutador'].length > 0 ){
+    this.puesto_trabajo.reclutador.id= this.form.value['reclutadorId'];
+    this.puesto_trabajo.requisito.id = this.form.value['requisitoId'];
+    if (this.form.value['reclutadorId'].length > 0 ){
 
       if (this.edicion) {
         //actualice
@@ -67,8 +67,8 @@ export class PuestoTrabajoCreaeditaComponent implements OnInit{
       this.puesto_trabajoService.ListId(this.id).subscribe(data => {
         this.form = new FormGroup({
           id: new FormControl(data.id),
-          reclutador: new FormControl(data.reclutador),
-          requisitos: new FormControl(data.requisitos),
+          reclutadorId: new FormControl(data.reclutador.id),
+          requisitoId: new FormControl(data.requisito.id),
         })
       })
     }
