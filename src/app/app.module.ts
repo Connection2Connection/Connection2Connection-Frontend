@@ -52,6 +52,10 @@ import { ReclutadorComponent } from './components/reclutador/reclutador.componen
 import { ReclutadorListarComponent } from './components/reclutador/reclutador-listar/reclutador-listar.component';
 import { ReclutadorDialogoComponent } from './components/reclutador/reclutador-listar/reclutador-dialogo/reclutador-dialogo.component';
 import { ReclutadorCreaeditaComponent } from './components/reclutador/reclutador-creaedita/reclutador-creaedita.component';
+import { PuestoTrabajoComponent } from './components/puesto-trabajo/puesto-trabajo.component';
+import { PuestoTrabajoListarComponent } from './components/puesto-trabajo/puesto-trabajo-listar/puesto-trabajo-listar.component';
+import { PuestoTrabajoDialogoComponent } from './components/puesto-trabajo/puesto-trabajo-listar/puesto-trabajo-dialogo/puesto-trabajo-dialogo.component';
+import { PuestoTrabajoCreaeditaComponent } from './components/puesto-trabajo/puesto-trabajo-creaedita/puesto-trabajo-creaedita.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +94,11 @@ import { ReclutadorCreaeditaComponent } from './components/reclutador/reclutador
     ReclutadorComponent,
     ReclutadorListarComponent,
     ReclutadorDialogoComponent,
-    ReclutadorCreaeditaComponent
+    ReclutadorCreaeditaComponent,
+    PuestoTrabajoComponent,
+    PuestoTrabajoListarComponent,
+    PuestoTrabajoDialogoComponent,
+    PuestoTrabajoCreaeditaComponent
   ],
   imports: [
     BrowserModule,
