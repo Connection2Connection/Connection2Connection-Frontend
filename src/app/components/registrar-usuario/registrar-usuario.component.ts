@@ -37,13 +37,13 @@ export class RegistrarUsuarioComponent implements OnInit {
   }
 
   registrar(): void {
-    this.u.id= this.form.value['id'];
-    this.u.DNI_Usuario= this.form.value['dni'];
-    this.u.Usuario_Usuario= this.form.value['usuario'];
-    this.u.Nombre_Usuario= this.form.value['nombre'];
-    this.u.Correo_Usuario= this.form.value['correo'];
-    this.u.Contrasena_Usuario= this.form.value['contraseña'];
-    this.u.Tipo_Usuario= this.form.value['tipo'];
+    this.u.idUsuario= this.form.value['id'];
+    this.u.dni_Usuario= this.form.value['dni'];
+    this.u.usuario_Usuario= this.form.value['usuario'];
+    this.u.nombre_Usuario= this.form.value['nombre'];
+    this.u.correo_Usuario= this.form.value['correo'];
+    this.u.contrasena_Usuario= this.form.value['contraseña'];
+    this.u.tipo_Usuario= this.form.value['tipo'];
     this.u.key= this.form.value['key'];
     if (this.form.value['dni'] && this.form.value['dni'].length > 0 &&
     this.form.value['usuario'] && this.form.value['usuario'].length > 0 &&
