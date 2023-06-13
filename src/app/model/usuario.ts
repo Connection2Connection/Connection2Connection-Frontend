@@ -1,10 +1,10 @@
 export class Usuario{
-  id:number =0
-  DNI_Usuario: number =0
-  Usuario_Usuario:string =""
-  Nombre_Usuario:string =""
-  Correo_Usuario:string =""
-  Contrasena_Usuario:string =""
-  Tipo_Usuario:string =""
-  key:number=0
+  idUsuario:number =0
+  dni_Usuario: number =0
+  usuario_Usuario:string =""
+  nombre_Usuario:string =""
+  correo_Usuario:string =""
+  contrasena_Usuario:string =""
+  tipo_Usuario:string =""
+  key:string=""
 }

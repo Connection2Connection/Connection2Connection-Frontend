@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
-    if(this.u.Correo_Usuario == this.loginUsuario.value.email && this.u.Contrasena_Usuario == this.loginUsuario.value.password)
+    if(this.u.correo_Usuario == this.loginUsuario.value.email && this.u.contrasena_Usuario == this.loginUsuario.value.password)
     {
       this.router.navigate(['Empresa']);
     }

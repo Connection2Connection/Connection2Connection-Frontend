@@ -44,6 +44,10 @@ import { CarreraComponent } from './components/carrera/carrera.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { EstudianteComponent } from './components/estudiante/estudiante.component';
+import { EstudianteCreaeditaComponent } from './components/estudiante/estudiante-creaedita/estudiante-creaedita.component';
+import { EstudianteListarComponent } from './components/estudiante/estudiante-listar/estudiante-listar.component';
+import { EstudianteDialogoComponent } from './components/estudiante/estudiante-listar/estudiante-dialogo/estudiante-dialogo.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +78,11 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
     CarreraComponent,
     LandingComponent,
     LoginComponent,
-    RegistrarUsuarioComponent
+    RegistrarUsuarioComponent,
+    EstudianteComponent,
+    EstudianteCreaeditaComponent,
+    EstudianteListarComponent,
+    EstudianteDialogoComponent
   ],
   imports: [
     BrowserModule,
