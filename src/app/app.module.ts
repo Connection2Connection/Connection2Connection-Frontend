@@ -44,6 +44,11 @@ import { CarreraComponent } from './components/carrera/carrera.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { ReclutadorComponent } from './components/reclutador/reclutador.component';
+import { ReclutadorListarComponent } from './components/reclutador/reclutador-listar/reclutador-listar.component';
+import { ReclutadorCrudComponent } from './components/reclutador/reclutador-crud/reclutador-crud.component';
+import { ReclutadorDialogoComponent } from './components/reclutador/reclutador-listar/reclutador-dialogo/reclutador-dialogo.component';
+
 
 @NgModule({
   declarations: [
@@ -74,7 +79,11 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
     CarreraComponent,
     LandingComponent,
     LoginComponent,
-    RegistrarUsuarioComponent
+    RegistrarUsuarioComponent,
+    ReclutadorComponent,
+    ReclutadorListarComponent,
+    ReclutadorCrudComponent,
+    ReclutadorDialogoComponent
   ],
   imports: [
     BrowserModule,
