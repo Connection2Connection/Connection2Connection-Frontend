@@ -20,6 +20,8 @@ import { EstudianteComponent } from './components/estudiante/estudiante.componen
 import { EstudianteCreaeditaComponent } from './components/estudiante/estudiante-creaedita/estudiante-creaedita.component';
 import { ReclutadorComponent } from './components/reclutador/reclutador.component';
 import { ReclutadorCreaeditaComponent } from './components/reclutador/reclutador-creaedita/reclutador-creaedita.component';
+import { PuestoTrabajoComponent } from './components/puesto-trabajo/puesto-trabajo.component';
+import { PuestoTrabajoCreaeditaComponent } from './components/puesto-trabajo/puesto-trabajo-creaedita/puesto-trabajo-creaedita.component';
 
 const routes: Routes = [
   {
@@ -73,7 +75,13 @@ const routes: Routes = [
   {
     path: 'Reclutadores', component: ReclutadorComponent, children: [
       { path: 'Crear', component: ReclutadorCreaeditaComponent},
-      { path: 'edicion/:id', component:ReclutadorCreaeditaComponent}
+      { path: 'Edicion/:id', component:ReclutadorCreaeditaComponent}
+    ]
+  },
+  {
+    path: 'Puesto_trabajo', component: PuestoTrabajoComponent, children: [
+      { path: 'Crear', component: PuestoTrabajoCreaeditaComponent},
+      { path: 'Edicion/:id', component: PuestoTrabajoCreaeditaComponent}
     ]
   }
 ];
