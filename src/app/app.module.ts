@@ -48,6 +48,10 @@ import { EstudianteComponent } from './components/estudiante/estudiante.componen
 import { EstudianteCreaeditaComponent } from './components/estudiante/estudiante-creaedita/estudiante-creaedita.component';
 import { EstudianteListarComponent } from './components/estudiante/estudiante-listar/estudiante-listar.component';
 import { EstudianteDialogoComponent } from './components/estudiante/estudiante-listar/estudiante-dialogo/estudiante-dialogo.component';
+import { ReclutadorComponent } from './components/reclutador/reclutador.component';
+import { ReclutadorListarComponent } from './components/reclutador/reclutador-listar/reclutador-listar.component';
+import { ReclutadorDialogoComponent } from './components/reclutador/reclutador-listar/reclutador-dialogo/reclutador-dialogo.component';
+import { ReclutadorCreaeditaComponent } from './components/reclutador/reclutador-creaedita/reclutador-creaedita.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +86,11 @@ import { EstudianteDialogoComponent } from './components/estudiante/estudiante-l
     EstudianteComponent,
     EstudianteCreaeditaComponent,
     EstudianteListarComponent,
-    EstudianteDialogoComponent
+    EstudianteDialogoComponent,
+    ReclutadorComponent,
+    ReclutadorListarComponent,
+    ReclutadorDialogoComponent,
+    ReclutadorCreaeditaComponent
   ],
   imports: [
     BrowserModule,
