@@ -18,6 +18,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
 import { EstudianteComponent } from './components/estudiante/estudiante.component';
 import { EstudianteCreaeditaComponent } from './components/estudiante/estudiante-creaedita/estudiante-creaedita.component';
+import { ReclutadorComponent } from './components/reclutador/reclutador.component';
+import { ReclutadorCreaeditaComponent } from './components/reclutador/reclutador-creaedita/reclutador-creaedita.component';
 
 const routes: Routes = [
   {
@@ -66,6 +68,12 @@ const routes: Routes = [
     path: 'estudiantes', component: EstudianteComponent, children: [
       { path: 'nuevo', component: EstudianteCreaeditaComponent },
       { path: 'edicion/:id', component: EstudianteCreaeditaComponent }
+    ]
+  },
+  {
+    path: 'Reclutadores', component: ReclutadorComponent, children: [
+      { path: 'Crear', component: ReclutadorCreaeditaComponent},
+      { path: 'edicion/:id', component:ReclutadorCreaeditaComponent}
     ]
   }
 ];
