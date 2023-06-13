@@ -29,17 +29,17 @@ export class ReclutadorCreaeditaComponent implements OnInit{
    })
    this.form = new FormGroup({
     id: new FormControl(),
-    Descripcion_Reclutador: new FormControl(),
-    empresa: new FormControl(),
-    usuario: new FormControl()
+    descripcion_Reclutador: new FormControl(),
+    empresaId: new FormControl(),
+    usuarioId: new FormControl()
   });
   }
 
   aceptar(): void {
-    this.reclutador.id= this.form.value['id'];
-    this.reclutador.descripcion_Reclutador= this.form.value['descripcion_Reclutador'];
-    this.reclutador.empresa = this.form.value['empresa'];
-    this.reclutador.usuario = this.form.value['usuario'];
+    this.reclutador.id = this.form.value['id'];
+    this.reclutador.descripcion_Reclutador = this.form.value['descripcion_Reclutador'];
+    this.reclutador.empresa.id = this.form.value['empresaId'];
+    this.reclutador.usuario.idUsuario = this.form.value['usuarioId'];
     if (this.form.value['descripcion_Reclutador'].length > 0 ){
 
       if (this.edicion) {
@@ -70,8 +70,8 @@ export class ReclutadorCreaeditaComponent implements OnInit{
         this.form = new FormGroup({
           id: new FormControl(data.id),
           descripcion_Reclutador: new FormControl(data.descripcion_Reclutador),
-          empresa: new FormControl(data.empresa),
-          usuario: new FormControl(data.usuario),
+          empresaId: new FormControl(data.empresa.id),
+          usuarioId: new FormControl(data.usuario.idUsuario),
         })
       })
     }
