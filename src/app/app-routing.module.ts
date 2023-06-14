@@ -22,6 +22,8 @@ import { ReclutadorComponent } from './components/reclutador/reclutador.componen
 import { ReclutadorCreaeditaComponent } from './components/reclutador/reclutador-creaedita/reclutador-creaedita.component';
 import { PuestoTrabajoComponent } from './components/puesto-trabajo/puesto-trabajo.component';
 import { PuestoTrabajoCreaeditaComponent } from './components/puesto-trabajo/puesto-trabajo-creaedita/puesto-trabajo-creaedita.component';
+import { MatchComponent } from './components/match/match.component';
+import { MatchCreaeditaComponent } from './components/match/match-creaedita/match-creaedita.component';
 
 const routes: Routes = [
   {
@@ -82,6 +84,13 @@ const routes: Routes = [
     path: 'Puesto_trabajo', component: PuestoTrabajoComponent, children: [
       { path: 'Crear', component: PuestoTrabajoCreaeditaComponent},
       { path: 'Edicion/:id', component: PuestoTrabajoCreaeditaComponent}
+    ]
+  },
+
+  {
+    path: 'Match', component: MatchComponent, children: [
+      { path: 'Crear', component: MatchCreaeditaComponent},
+      { path: 'Edicion/:id', component: MatchCreaeditaComponent}
     ]
   }
 ];

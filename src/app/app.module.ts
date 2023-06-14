@@ -56,6 +56,10 @@ import { PuestoTrabajoComponent } from './components/puesto-trabajo/puesto-traba
 import { PuestoTrabajoListarComponent } from './components/puesto-trabajo/puesto-trabajo-listar/puesto-trabajo-listar.component';
 import { PuestoTrabajoDialogoComponent } from './components/puesto-trabajo/puesto-trabajo-listar/puesto-trabajo-dialogo/puesto-trabajo-dialogo.component';
 import { PuestoTrabajoCreaeditaComponent } from './components/puesto-trabajo/puesto-trabajo-creaedita/puesto-trabajo-creaedita.component';
+import { MatchComponent } from './components/match/match.component';
+import { MatchListarComponent } from './components/match/match-listar/match-listar.component';
+import { MatchCreaeditaComponent } from './components/match/match-creaedita/match-creaedita.component';
+import { MatchDialogoComponent } from './components/match/match-listar/match-dialogo/match-dialogo.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +102,11 @@ import { PuestoTrabajoCreaeditaComponent } from './components/puesto-trabajo/pue
     PuestoTrabajoComponent,
     PuestoTrabajoListarComponent,
     PuestoTrabajoDialogoComponent,
-    PuestoTrabajoCreaeditaComponent
+    PuestoTrabajoCreaeditaComponent,
+    MatchComponent,
+    MatchListarComponent,
+    MatchCreaeditaComponent,
+    MatchDialogoComponent
   ],
   imports: [
     BrowserModule,
