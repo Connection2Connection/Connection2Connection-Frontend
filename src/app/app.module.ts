@@ -56,6 +56,10 @@ import { PuestoTrabajoComponent } from './components/puesto-trabajo/puesto-traba
 import { PuestoTrabajoListarComponent } from './components/puesto-trabajo/puesto-trabajo-listar/puesto-trabajo-listar.component';
 import { PuestoTrabajoDialogoComponent } from './components/puesto-trabajo/puesto-trabajo-listar/puesto-trabajo-dialogo/puesto-trabajo-dialogo.component';
 import { PuestoTrabajoCreaeditaComponent } from './components/puesto-trabajo/puesto-trabajo-creaedita/puesto-trabajo-creaedita.component';
+import { Calificacion_EstudianteComponent } from './components/calificacion_estudiante/calificacion_estudiante.component';
+import { Calificacion_EstudianteListarComponent } from './components/calificacion_estudiante/calificacion_estudiante-listar/calificacion_estudiante-listar.component';
+import { Calificacion_EstudianteDialogoComponent } from './components/calificacion_estudiante/calificacion_estudiante-listar/calificacion_estudiante-dialogo/calificacion_estudiante-dialogo.component';
+import { Calificacion_EstudianteCreaeditaComponent } from './components/calificacion_estudiante/calificacion_estudiante-creaedita/calificacion_estudiante-creaedita.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +102,11 @@ import { PuestoTrabajoCreaeditaComponent } from './components/puesto-trabajo/pue
     PuestoTrabajoComponent,
     PuestoTrabajoListarComponent,
     PuestoTrabajoDialogoComponent,
-    PuestoTrabajoCreaeditaComponent
+    PuestoTrabajoCreaeditaComponent,
+    Calificacion_EstudianteComponent,
+    Calificacion_EstudianteListarComponent,
+    Calificacion_EstudianteDialogoComponent,
+    Calificacion_EstudianteCreaeditaComponent
   ],
   imports: [
     BrowserModule,
