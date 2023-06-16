@@ -24,6 +24,8 @@ import { PuestoTrabajoComponent } from './components/puesto-trabajo/puesto-traba
 import { PuestoTrabajoCreaeditaComponent } from './components/puesto-trabajo/puesto-trabajo-creaedita/puesto-trabajo-creaedita.component';
 import { Calificacion_EstudianteComponent } from './components/calificacion_estudiante/calificacion_estudiante.component';
 import { Calificacion_EstudianteCreaeditaComponent } from './components/calificacion_estudiante/calificacion_estudiante-creaedita/calificacion_estudiante-creaedita.component';
+import { RolComponent } from './components/rol/rol.component';
+import { RolCreaeditaComponent } from './components/rol/rol-creaedita/rol-creaedita.component';
 
 const routes: Routes = [
   {
@@ -90,6 +92,12 @@ const routes: Routes = [
     path: 'Calificacion_Estudiante', component: Calificacion_EstudianteComponent, children: [
       { path: 'Crear', component: Calificacion_EstudianteCreaeditaComponent},
       { path: 'Edicion/:id', component: Calificacion_EstudianteCreaeditaComponent}
+    ]
+  },
+  {
+    path: 'Rol', component: RolComponent, children: [
+      { path: 'Crear', component: RolCreaeditaComponent},
+      { path: 'Edicion/:id', component: RolCreaeditaComponent}
     ]
   }
 ];
