@@ -22,6 +22,8 @@ import { ReclutadorComponent } from './components/reclutador/reclutador.componen
 import { ReclutadorCreaeditaComponent } from './components/reclutador/reclutador-creaedita/reclutador-creaedita.component';
 import { PuestoTrabajoComponent } from './components/puesto-trabajo/puesto-trabajo.component';
 import { PuestoTrabajoCreaeditaComponent } from './components/puesto-trabajo/puesto-trabajo-creaedita/puesto-trabajo-creaedita.component';
+import { MatchComponent } from './components/match/match.component';
+import { MatchCreaeditaComponent } from './components/match/match-creaedita/match-creaedita.component';
 import { Calificacion_EstudianteComponent } from './components/calificacion_estudiante/calificacion_estudiante.component';
 import { Calificacion_EstudianteCreaeditaComponent } from './components/calificacion_estudiante/calificacion_estudiante-creaedita/calificacion_estudiante-creaedita.component';
 import { RolComponent } from './components/rol/rol.component';
@@ -88,6 +90,13 @@ const routes: Routes = [
       { path: 'Edicion/:id', component: PuestoTrabajoCreaeditaComponent}
     ]
   },
+
+  {
+    path: 'Match', component: MatchComponent, children: [
+      { path: 'Crear', component: MatchCreaeditaComponent},
+      { path: 'Edicion/:id', component: MatchCreaeditaComponent}
+        ]
+},
   {
     path: 'Calificacion_Estudiante', component: Calificacion_EstudianteComponent, children: [
       { path: 'Crear', component: Calificacion_EstudianteCreaeditaComponent},
