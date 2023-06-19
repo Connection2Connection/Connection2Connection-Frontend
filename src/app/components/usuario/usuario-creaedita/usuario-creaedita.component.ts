@@ -57,10 +57,11 @@ export class UsuarioCreaeditaComponent implements OnInit {
     this.form.value['nombre'] && this.form.value['nombre'].length > 0 &&
     this.form.value['correo'] && this.form.value['correo'].length > 0 &&
     this.form.value['contraseña'] && this.form.value['contraseña'].length > 0 &&
-    this.form.value['tipo'] && this.form.value['tipo'].length > 0 &&
+    this.form.value['tipo'].length > 0 &&
     this.form.value['tipo'] !== 'admin') {
 
       if (this.edicion) {
+        console.log("edit")
         //actualice
         this.uS.update(this.u).subscribe(() => {
           this.uS.list().subscribe(data => {
@@ -76,31 +77,7 @@ export class UsuarioCreaeditaComponent implements OnInit {
         })
       }
       this.router.navigate(['usuarios']);
-    } else if(this.form.value['dni'] && this.form.value['dni'].length > 0 &&
-    this.form.value['usuario'] && this.form.value['usuario'].length > 0 &&
-    this.form.value['nombre'] && this.form.value['nombre'].length > 0 &&
-    this.form.value['correo'] && this.form.value['correo'].length > 0 &&
-    this.form.value['contraseña'] && this.form.value['contraseña'].length > 0 &&
-    this.form.value['tipo'] && this.form.value['tipo'].length > 0 &&
-    this.form.value['tipo'] == 'admin' &&
-    this.form.value['key'] && this.form.value['key'].length > 0){
-        if (this.edicion) {
-          //actualice
-          this.uS.update(this.u).subscribe(() => {
-            this.uS.list().subscribe(data => {
-              this.uS.setList(data);
-            })
-          })
-
-        } else {
-          this.uS.insert(this.u).subscribe(data => {
-            this.uS.list().subscribe(data => {
-              this.uS.setList(data);
-            })
-          })
-        }
-        this.router.navigate(['usuarios']);
-      }
+    }
       else {
         this.mensaje = "Complete los campos requeridos ¬¬";
       }

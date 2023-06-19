@@ -60,6 +60,14 @@ import { MatchComponent } from './components/match/match.component';
 import { MatchListarComponent } from './components/match/match-listar/match-listar.component';
 import { MatchCreaeditaComponent } from './components/match/match-creaedita/match-creaedita.component';
 import { MatchDialogoComponent } from './components/match/match-listar/match-dialogo/match-dialogo.component';
+import { Calificacion_EstudianteComponent } from './components/calificacion_estudiante/calificacion_estudiante.component';
+import { Calificacion_EstudianteListarComponent } from './components/calificacion_estudiante/calificacion_estudiante-listar/calificacion_estudiante-listar.component';
+import { Calificacion_EstudianteDialogoComponent } from './components/calificacion_estudiante/calificacion_estudiante-listar/calificacion_estudiante-dialogo/calificacion_estudiante-dialogo.component';
+import { Calificacion_EstudianteCreaeditaComponent } from './components/calificacion_estudiante/calificacion_estudiante-creaedita/calificacion_estudiante-creaedita.component';
+import { RolComponent } from './components/rol/rol.component';
+import { RolListarComponent } from './components/rol/rol-listar/rol-listar.component';
+import { RolDialogoComponent } from './components/rol/rol-listar/rol-dialogo/rol-dialogo.component';
+import { RolCreaeditaComponent } from './components/rol/rol-creaedita/rol-creaedita.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +115,14 @@ import { MatchDialogoComponent } from './components/match/match-listar/match-dia
     MatchListarComponent,
     MatchCreaeditaComponent,
     MatchDialogoComponent
+    Calificacion_EstudianteComponent,
+    Calificacion_EstudianteListarComponent,
+    Calificacion_EstudianteDialogoComponent,
+    Calificacion_EstudianteCreaeditaComponent,
+    RolComponent,
+    RolListarComponent,
+    RolDialogoComponent,
+    RolCreaeditaComponent
   ],
   imports: [
     BrowserModule,
