@@ -16,7 +16,4 @@ export class CarreraDialogoComponent implements OnInit {
       this.aS.setConfirmDelete(estado);
       this.dialogRef.close();
     }
-
-
-
 }

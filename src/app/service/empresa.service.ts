@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Empresa } from '../model/empresa';
@@ -15,11 +15,17 @@ export class EmpresaService {
   constructor(private http:HttpClient) { }
 
   List() {
-    return this.http.get<Empresa[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Empresa[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   Insert(empresa: Empresa) {
-    return this.http.post(this.url, empresa)
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, empresa, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   SetList(ListaNueva: Empresa[]){
@@ -31,15 +37,24 @@ export class EmpresaService {
   }
 
   ListId(id: number){
-    return this.http.get<Empresa>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Empresa>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   Update(empresa: Empresa) {
-    //return this.http.put(this.url + "/" + empresa.id, empresa);
-    return this.http.put(this.url, empresa)
+    let token = sessionStorage.getItem("token");
+   return this.http.put(this.url, empresa, {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
+
   }
   Delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   GetConfirmDelete(){
