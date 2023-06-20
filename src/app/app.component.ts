@@ -22,14 +22,30 @@ export class AppComponent implements OnInit {
     this.role=this.loginService.showRole();
     return this.loginService.verificar();
   }
-  validarRol(){
-    if(this.role=='ADMIN' || this.role=='USER'){
+  //validarRolAdmin: si es admin lo puede ver
+  validarRolAdmin(){
+    if(this.role=='ADMIN'){
       return true;
     }else{
       return false;
     }
   }
-
+  //validarRolEstudiante: si no es estudiante lo puede ver
+  validarRolEstudiante(){
+    if(this.role!=='ESTUDIANTE'){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  //validarRolReclutador: si no es reclutador lo puede ver
+  validarRolReclutador(){
+    if(this.role!=='RECLUTADOR'){
+      return true;
+    }else{
+      return false;
+    }
+  }
   constructor(private router:Router,private http: HttpClient, private loginService: LoginService)
   {
     this.router.events.pipe(
@@ -45,6 +61,8 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit():void{
+        this.role=this.loginService.showRole();
+    console.log(this.role);
   }
 }
 
