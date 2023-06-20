@@ -24,6 +24,8 @@ import { Calificacion_EstudianteComponent } from './calificacion_estudiante/cali
 import { Calificacion_EstudianteCreaeditaComponent } from './calificacion_estudiante/calificacion_estudiante-creaedita/calificacion_estudiante-creaedita.component';
 import { RolComponent } from './rol/rol.component';
 import { RolCreaeditaComponent } from './rol/rol-creaedita/rol-creaedita.component';
+import { MatchComponent } from './match/match.component';
+import { MatchCreaeditaComponent } from './match/match-creaedita/match-creaedita.component';
 
 const routes: Routes = [
   {
@@ -80,6 +82,12 @@ const routes: Routes = [
     path: 'Puesto_trabajo', component: PuestoTrabajoComponent, children: [
       { path: 'Crear', component: PuestoTrabajoCreaeditaComponent},
       { path: 'Edicion/:id', component: PuestoTrabajoCreaeditaComponent}
+    ],canActivate:[GuardService]
+  },
+  {
+    path: 'Match', component: MatchComponent, children: [
+      { path: 'Crear', component: MatchCreaeditaComponent},
+      { path: 'Edicion/:id', component: MatchCreaeditaComponent}
     ],canActivate:[GuardService]
   },
   {

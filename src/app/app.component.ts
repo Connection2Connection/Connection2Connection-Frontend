@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   }
   //validarRolAdmin: si es admin lo puede ver
   validarRolAdmin(){
-    if(this.role=='ADMIN'){
+    if(this.role =='ADMIN'){
       return true;
     }else{
       return false;
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   }
   //validarRolEstudiante: si no es estudiante lo puede ver
   validarRolEstudiante(){
-    if(this.role!=='ESTUDIANTE'){
+    if(this.role !=='ESTUDIANTE'){
       return true;
     }else{
       return false;
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
   }
   //validarRolReclutador: si no es reclutador lo puede ver
   validarRolReclutador(){
-    if(this.role!=='RECLUTADOR'){
+    if(this.role !=='RECLUTADOR'){
       return true;
     }else{
       return false;

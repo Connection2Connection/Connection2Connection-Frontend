@@ -60,6 +60,10 @@ import { RolComponent } from './rol/rol.component';
 import { RolListarComponent } from './rol/rol-listar/rol-listar.component';
 import { RolDialogoComponent } from './rol/rol-listar/rol-dialogo/rol-dialogo.component';
 import { RolCreaeditaComponent } from './rol/rol-creaedita/rol-creaedita.component';
+import { MatchComponent } from './match/match.component';
+import { MatchListarComponent } from './match/match-listar/match-listar.component';
+import { MatchDialogoComponent } from './match/match-listar/match-dialogo/match-dialogo.component';
+import { MatchCreaeditaComponent } from './match/match-creaedita/match-creaedita.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +103,10 @@ import { RolCreaeditaComponent } from './rol/rol-creaedita/rol-creaedita.compone
     PuestoTrabajoListarComponent,
     PuestoTrabajoDialogoComponent,
     PuestoTrabajoCreaeditaComponent,
+    MatchComponent,
+    MatchListarComponent,
+    MatchDialogoComponent,
+    MatchCreaeditaComponent,
     Calificacion_EstudianteComponent,
     Calificacion_EstudianteListarComponent,
     Calificacion_EstudianteDialogoComponent,
