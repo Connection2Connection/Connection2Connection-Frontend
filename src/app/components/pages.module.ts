@@ -64,6 +64,8 @@ import { MatchComponent } from './match/match.component';
 import { MatchListarComponent } from './match/match-listar/match-listar.component';
 import { MatchDialogoComponent } from './match/match-listar/match-dialogo/match-dialogo.component';
 import { MatchCreaeditaComponent } from './match/match-creaedita/match-creaedita.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte01Component } from './reportes/reporte01/reporte01.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +116,9 @@ import { MatchCreaeditaComponent } from './match/match-creaedita/match-creaedita
     RolComponent,
     RolListarComponent,
     RolDialogoComponent,
-    RolCreaeditaComponent
+    RolCreaeditaComponent,
+    ReportesComponent,
+    Reporte01Component
   ],
   imports: [
     CommonModule,

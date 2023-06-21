@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
       if(event.url === '/' || event.url==='/#Inicio' || event.url==='/#Nosotros' || event.url==='/#Servicios' || event.url==='/login' || event.url==='/registrar-usuario') {
         this.open = false;
       } else{
-        this.open=true
+        this.open=true;
       }
     })
 
