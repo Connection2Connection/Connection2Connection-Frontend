@@ -58,7 +58,7 @@ export class ReclutadorCreaeditaComponent implements OnInit{
         })
       }
 
-      this.router.navigate(['Reclutadores']);
+      this.router.navigate(['/pages/Reclutadores']);
     } else {
       this.mensaje = "Complete todos los campos!";
     }

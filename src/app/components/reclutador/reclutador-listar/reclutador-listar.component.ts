@@ -5,6 +5,7 @@ import { ReclutadorService } from 'src/app/service/reclutador.service'
 import { ReclutadorDialogoComponent } from './reclutador-dialogo/reclutador-dialogo.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-reclutador-listar',
@@ -12,15 +13,17 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./reclutador-listar.component.css']
 })
 export class ReclutadorListarComponent implements OnInit{
-
+  role:string="";
   dataSourceReclutador: MatTableDataSource<Reclutador>=new MatTableDataSource();
   idMayor: number = 0
   displayedColumnsReclutador: string[] = ['id', 'descripcion', 'empresa', 'usuario', 'accion01', 'accion02']
   @ViewChild(MatPaginator,{ static:true }) paginator!: MatPaginator;
 
-  constructor(private reclutadorService: ReclutadorService, private dialog: MatDialog) {}
+  constructor(private reclutadorService: ReclutadorService, private dialog: MatDialog, private ls:LoginService) {}
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
     this.reclutadorService.List().subscribe(data=> {
       this.dataSourceReclutador = new MatTableDataSource(data);
       this.dataSourceReclutador.paginator = this.paginator;

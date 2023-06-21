@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Reclutador } from '../model/reclutador';
@@ -15,11 +15,17 @@ export class ReclutadorService {
   constructor(private http:HttpClient) { }
 
   List() {
-    return this.http.get<Reclutador[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Reclutador[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   Insert(reclutador: Reclutador) {
-    return this.http.post(this.url, reclutador)
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, reclutador, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   SetList(ListaNueva: Reclutador[]){
@@ -31,15 +37,23 @@ export class ReclutadorService {
   }
 
   ListId(id: number){
-    return this.http.get<Reclutador>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Reclutador>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   Update(reclutador: Reclutador) {
-    //return this.http.put(this.url + "/" + reclutador.id, reclutador);
-    return this.http.put(this.url, reclutador)
+    let token = sessionStorage.getItem("token");
+   return this.http.put(this.url, reclutador, {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   Delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   GetConfirmDelete(){
