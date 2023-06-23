@@ -29,7 +29,7 @@ export class UsuarioService {
     return this.http.get<Usuario>(`${this.url}/${id}`);
   }
   update(au:Usuario){
-    return this.http.put(this.url+"/"+au.idUsuario,au)
+    return this.http.put(this.url,au)
   }
   delete(id: number) {
     return this.http.delete(`${this.url}/${id}`)

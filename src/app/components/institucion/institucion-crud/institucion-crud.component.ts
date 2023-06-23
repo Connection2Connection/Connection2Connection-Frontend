@@ -55,7 +55,7 @@ export class InstitucionCrudComponent implements OnInit{
         })
       }
 
-      this.router.navigate(['Institucion']);
+      this.router.navigate(['/pages/Institucion']);
     } else {
       this.mensaje = "Complete todos los campos!";
     }

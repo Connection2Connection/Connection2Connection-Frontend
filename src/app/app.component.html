@@ -12,8 +12,8 @@
         <li><a href="#Inicio" >Home</a></li>
         <li><a href="#Nosotros" >Nosotros</a></li>
         <li><a href="#Servicios" >Servicios</a></li>
-        <li><a href="/login">Ingresar</a></li>
         <li><a href="/registrar-usuario" >Registrate</a></li>
+        <li><a href="" (click)="cerrar()">Cerrar Sesion </a></li>
       </ul>
     </nav>
   </header>
@@ -21,19 +21,25 @@
 <section class="CRUD">
   <div>
     <nav mat-tab-nav-bar ngClass = "tabs" *ngIf="open">
-      <a mat-tab-link routerLink="/Empresa" routerLinkActive="active-link">Empresa</a>
-      <a mat-tab-link routerLink="/usuarios" routerLinkActive="active-link">Usuario</a>
-      <a mat-tab-link routerLink="/requisitos" routerLinkActive="active-link">Requisito</a>
-      <a mat-tab-link routerLink="/Calificacion" routerLinkActive="active-link">Calificacion</a>
-      <a mat-tab-link routerLink="/Institucion" routerLinkActive="active-link">Institucion</a>
-      <a mat-tab-link routerLink="/carreras" routerLinkActive="active-link">Carrera</a>
-      <a mat-tab-link routerLink="/estudiantes" routerLinkActive="active-link">Estudiantes</a>
-      <a mat-tab-link routerLink="/Reclutadores" routerLinkActive="active-link">Reclutadores</a>
-      <a mat-tab-link routerLink="/Puesto_trabajo" routerLinkActive="active-link">Puesto_trabajo</a>
-      <a mat-tab-link routerLink="/Match" routerLinkActive="active-link">Match</a>
+      <a mat-tab-link routerLink="/pages/Empresa" routerLinkActive="active-link">Empresa</a>
+      <a mat-tab-link routerLink="/pages/usuarios" routerLinkActive="active-link">Usuario</a>
+      <a mat-tab-link routerLink="/pages/requisitos" routerLinkActive="active-link">Requisito</a>
+      <a mat-tab-link routerLink="/pages/Calificacion" routerLinkActive="active-link">Calificacion</a>
+      <a mat-tab-link routerLink="/pages/Institucion" routerLinkActive="active-link">Institucion</a>
+      <a mat-tab-link routerLink="/pages/carreras" routerLinkActive="active-link">Carrera</a>
+      <a mat-tab-link routerLink="/pages/estudiantes" routerLinkActive="active-link">Estudiantes</a>
+      <a mat-tab-link routerLink="/pages/Reclutadores" routerLinkActive="active-link">Reclutadores</a>
+      <a mat-tab-link routerLink="/pages/Puesto_trabajo" routerLinkActive="active-link">Puesto_trabajo</a>
+      <a mat-tab-link routerLink="/pages/Match" routerLinkActive="active-link">Match</a>
+      <a mat-tab-link routerLink="/pages/Calificacion_Estudiante" routerLinkActive="active-link">Calificacion_Estudiante</a>
+      <a mat-tab-link routerLink="/pages/Rol" routerLinkActive="active-link">Rol</a>
+      <a mat-tab-link routerLink="/pages/Reporte01" routerLinkActive="active-link">Reporte1</a>
+
+
     </nav>
   </div>
 </section>
+
 <div>
   <br>
   <router-outlet></router-outlet>

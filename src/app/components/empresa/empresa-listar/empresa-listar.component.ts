@@ -5,6 +5,7 @@ import { EmpresaService } from 'src/app/service/empresa.service'
 import { EmpresaDialogoComponent } from './empresa-dialogo/empresa-dialogo.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-empresa-listar',
@@ -12,15 +13,17 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./empresa-listar.component.css']
 })
 export class EmpresaListarComponent implements OnInit{
-
+  role:string="";
   dataSourceEmpresa: MatTableDataSource<Empresa>=new MatTableDataSource();
   idMayor: number = 0
   displayedColumnsEmpresa: string[] = ['id', 'nombre', 'descripcion', 'correo', 'accion01', 'accion02']
   @ViewChild(MatPaginator,{ static:true }) paginator!: MatPaginator;
 
-  constructor(private empresaService: EmpresaService, private dialog: MatDialog) {}
+  constructor(private empresaService: EmpresaService, private dialog: MatDialog, private ls:LoginService) {}
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
     this.empresaService.List().subscribe(data=> {
       this.dataSourceEmpresa = new MatTableDataSource(data);
       this.dataSourceEmpresa.paginator = this.paginator;

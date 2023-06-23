@@ -57,7 +57,7 @@ export class EmpresaCRUDComponent implements OnInit{
         })
       }
 
-      this.router.navigate(['Empresa']);
+      this.router.navigate(['/pages/Empresa']);
     } else {
       this.mensaje = "Complete todos los campos!";
     }

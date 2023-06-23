@@ -81,7 +81,7 @@ export class MatchCreaeditaComponent implements OnInit{
         })
       }
 
-      this.router.navigate(['Match']);
+      this.router.navigate(['/pages/Match']);
     } else {
       this.mensaje = "Complete todos los campos!";
     }

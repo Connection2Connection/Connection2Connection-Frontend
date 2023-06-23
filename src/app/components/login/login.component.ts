@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/model/usuario';
+import { JwtRequest } from 'src/app/model/jwtRequest';
+import { LoginService } from 'src/app/service/login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -9,27 +10,22 @@ import { Usuario } from 'src/app/model/usuario';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  loginUsuario: FormGroup;
-  u: Usuario = new Usuario();
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-  ) {
-    this.loginUsuario = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-    })
-  }
-
+  constructor(private loginService: LoginService, private router: Router, private snackBar: MatSnackBar) {}
+  username: string = ""
+  password: string = ""
+  mensaje: string = ""
   ngOnInit(): void {}
 
   login() {
-    if(this.u.correo_Usuario == this.loginUsuario.value.email && this.u.contrasena_Usuario == this.loginUsuario.value.password)
-    {
-      this.router.navigate(['Empresa']);
-    }
-    else{
-      this.router.navigate(['Empresa']);
-    }
+    let request = new JwtRequest();
+    request.username = this.username;
+    request.password = this.password;
+    this.loginService.login(request).subscribe((data: any) => {
+      sessionStorage.setItem("token", data.jwttoken);
+      this.router.navigate(['pages/Empresa']);
+    }, error => {
+      this.mensaje = "Credenciales incorrectas!!!"
+      this.snackBar.open(this.mensaje, "Aviso",{duration:2000});
+    });
   }
 }
