@@ -144,6 +144,15 @@ module.exports = function () {
           Calificacion: 3, //de 1-5
         }
       ],
+    Match: [
+      {
+        id: 0,
+        numero_match: 1,
+        confirmacion_match: 1,
+        reclutadorId: 4,
+        estudianteId: 2
+      }
+    ]
   }
   return data
 }

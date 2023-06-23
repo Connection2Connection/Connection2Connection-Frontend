@@ -9,7 +9,7 @@ const base_url= environment.base
   providedIn: 'root'
 })
 export class MatchService {
-  private url=`${base_url}/match`
+  private url=`${base_url}/Match`
   private listCambio = new Subject<Match[]>()
   private confirmarEliminacion = new Subject<Boolean>()
 

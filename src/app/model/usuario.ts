@@ -7,4 +7,12 @@ export class Usuario{
   contrasena_Usuario:string =""
   tipo_Usuario:string =""
   key:string=""
+
+  Contrasena_Usuario: string = ""
+  Correo_Usuario: string = ""
+  DNI_Usuario: number = 0
+  Nombre_Usuario: string = ''
+  Tipo_Usuario: string = ''
+  Usuario_Usuario: string = ''
+  id: number = 0
 }

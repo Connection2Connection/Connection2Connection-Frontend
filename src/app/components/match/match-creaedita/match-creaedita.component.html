@@ -28,18 +28,22 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>confirmacion_match:</mat-label>
-        <input matInput required placeholder="confirmacion_match" formControlName="numero_match">
+        <input matInput required placeholder="confirmacion_match" formControlName="confirmacion_match">
       </mat-form-field>
       <br>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>reclutador_id:</mat-label>
-        <input matInput required placeholder="Ingrese Id Reclutador" formControlName="reclutadorId">
+      <mat-form-field appearance="fill">
+        <mat-label>Reclutador</mat-label>
+        <mat-select formControlName="reclutadorId">
+          <mat-option [value]="reclutador.id" *ngFor="let reclutador of reclutadores">{{reclutador.Nombre_Usuario}}</mat-option>
+        </mat-select>
       </mat-form-field>
       <br>
-      <mat-form-field class="example-full-width">
-        <mat-label>estudiante_id:</mat-label>
-        <input matInput required placeholder="Ingrese id estudiante" formControlName="estudianteId">
+      <mat-form-field appearance="fill">
+        <mat-label>Estudiante</mat-label>
+        <mat-select formControlName="estudianteId">
+          <mat-option [value]="estudiante.id" *ngFor="let estudiante of estudiantes">{{ estudiante.Nombre_Usuario }}</mat-option>
+        </mat-select>
       </mat-form-field>
       <br>
       <div style="text-align: center;">
