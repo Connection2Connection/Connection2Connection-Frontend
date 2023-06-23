@@ -36,7 +36,7 @@ export class MatchService {
   }
 
   Update(match : Match) {
-    
+
     return this.http.put(this.url, match)
   }
   Delete(id: number) {

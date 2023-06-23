@@ -39,7 +39,7 @@ export class MatchListarComponent implements OnInit{
       data== true? this.eliminar(this.idMayor) : false;
     })
 
-    
+
   }
 
   getEstudiantes(): void {
@@ -47,7 +47,7 @@ export class MatchListarComponent implements OnInit{
       this.estudiantes = resp.filter(item => item.Tipo_Usuario === 'estudiante');
     })
   }
-  
+
   getReclutadores(): void {
     this.usuarioService.list().subscribe(resp => {
       this.reclutadores = resp.filter(item => item.Tipo_Usuario === 'reclutador');

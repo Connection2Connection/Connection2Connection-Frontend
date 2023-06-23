@@ -50,7 +50,7 @@ export class MatchCreaeditaComponent implements OnInit{
       this.reclutadores = resp.filter(item => item.Tipo_Usuario === 'reclutador');
     })
   }
-  
+
   getEstudiantes(): void {
     this.usuarioService.list().subscribe(resp => {
       this.estudiantes = resp.filter(item => item.Tipo_Usuario === 'estudiante');
@@ -81,7 +81,7 @@ export class MatchCreaeditaComponent implements OnInit{
         })
       }
 
-      this.router.navigate(['/pages/Match']);
+      this.router.navigate(['Match']);
     } else {
       this.mensaje = "Complete todos los campos!";
     }
