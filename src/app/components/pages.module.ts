@@ -70,6 +70,7 @@ import { RepositorioComponent } from './repositorio/repositorio.component';
 import { RepositorioListarComponent } from './repositorio/repositorio-listar/repositorio-listar.component';
 import { RepositorioDialogoComponent } from './repositorio/repositorio-listar/repositorio-dialogo/repositorio-dialogo.component';
 import { RepositorioCreaeditaComponent } from './repositorio/repositorio-creaedita/repositorio-creaedita.component';
+import { Reporte02Component } from './reportes/reporte02/reporte02.component';
 
 @NgModule({
   declarations: [
@@ -126,7 +127,8 @@ import { RepositorioCreaeditaComponent } from './repositorio/repositorio-creaedi
     RepositorioComponent,
     RepositorioListarComponent,
     RepositorioDialogoComponent,
-    RepositorioCreaeditaComponent
+    RepositorioCreaeditaComponent,
+    Reporte02Component
   ],
   imports: [
     CommonModule,

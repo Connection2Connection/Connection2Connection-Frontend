@@ -29,6 +29,7 @@ import { MatchCreaeditaComponent } from './match/match-creaedita/match-creaedita
 import { Reporte01Component } from './reportes/reporte01/reporte01.component';
 import { RepositorioComponent } from './repositorio/repositorio.component';
 import { RepositorioCreaeditaComponent } from './repositorio/repositorio-creaedita/repositorio-creaedita.component';
+import { Reporte02Component } from './reportes/reporte02/reporte02.component';
 
 const routes: Routes = [
   {
@@ -115,7 +116,7 @@ const routes: Routes = [
     path: 'Reporte01', component: Reporte01Component, canActivate:[GuardService]
   },
   {
-    path: 'Reporte02', component: Reporte01Component, canActivate:[GuardService]
+    path: 'Reporte02', component: Reporte02Component, canActivate:[GuardService]
   }
 ]
 
