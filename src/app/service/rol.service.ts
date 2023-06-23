@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Rol } from '../model/rol';
@@ -16,11 +16,17 @@ export class RolService {
   constructor(private http:HttpClient) { }
 
   List() {
-    return this.http.get<Rol[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Rol[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   Insert(rol: Rol) {
-    return this.http.post(this.url, rol)
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, rol, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   SetList(ListaNueva: Rol[]){
@@ -32,22 +38,17 @@ export class RolService {
   }
 
   ListId(id: number){
-    return this.http.get<Rol>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Rol>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   Update(rol: Rol) {
-    //return this.http.put(this.url + "/" + rol.id, rol);
-    return this.http.put(this.url, rol)
-  }
-  Delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
-  }
-
-  GetConfirmDelete(){
-    return this.confirmarEliminacion.asObservable();
-  }
-  SetConfirmDelete(estado:Boolean){
-    this.confirmarEliminacion.next(estado);
+    let token = sessionStorage.getItem("token");
+   return this.http.put(this.url, rol, {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
 }
 
