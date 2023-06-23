@@ -56,7 +56,7 @@ export class RolCreaeditaComponent implements OnInit{
         })
       }
 
-      this.router.navigate(['Rol']);
+      this.router.navigate(['/pages/Rol']);
     } else {
       this.mensaje = "Complete todos los campos!";
     }
