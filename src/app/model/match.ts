@@ -9,4 +9,7 @@ export class Match{
   reclutador: Reclutador = new Reclutador()
   estudiante : Estudiante = new Estudiante()
 
+  reclutadorId: string = '';
+  estudianteId: string = '';
+
 }

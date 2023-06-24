@@ -72,6 +72,8 @@ import { RepositorioDialogoComponent } from './repositorio/repositorio-listar/re
 import { RepositorioCreaeditaComponent } from './repositorio/repositorio-creaedita/repositorio-creaedita.component';
 import { Reporte02Component } from './reportes/reporte02/reporte02.component';
 
+
+
 @NgModule({
   declarations: [
     EmpresaComponent,

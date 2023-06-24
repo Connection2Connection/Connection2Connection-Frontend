@@ -3,6 +3,10 @@ import { Match } from 'src/app/model/match';
 import { MatchService } from 'src/app/service/match.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ReclutadorService } from 'src/app/service/reclutador.service';
+import { UsuarioService } from 'src/app/service/usuario.service';
+import { Reclutador } from 'src/app/model/reclutador';
+import { Estudiante } from 'src/app/model/estudiante';
 
 @Component({
   selector: 'app-match-creaedita',
@@ -17,7 +21,10 @@ export class MatchCreaeditaComponent implements OnInit{
   id: number = 0;
   edicion: boolean = false;
 
-  constructor(private matchService : MatchService, private router: Router, private route: ActivatedRoute) {
+  reclutadores: any[] = [];
+  estudiantes: any[] = [];
+
+  constructor(private matchService : MatchService, private router: Router, private route: ActivatedRoute, private usuarioService: UsuarioService) {
 
   }
 
@@ -31,16 +38,32 @@ export class MatchCreaeditaComponent implements OnInit{
      id: new FormControl(),
      reclutadorId: new FormControl(),
      estudianteId: new FormControl(),
+     numero_match: new FormControl(),
+     confirmacion_match: new FormControl()
    });
-   }
+   this.getReclutadores();
+   this.getEstudiantes();
+  }
+
+  getReclutadores(): void {
+    this.usuarioService.list().subscribe(resp => {
+      this.reclutadores = resp.filter(item => item.rol === 'RECLUTADOR');
+    })
+  }
+
+  getEstudiantes(): void {
+    this.usuarioService.list().subscribe(resp => {
+      this.estudiantes = resp.filter(item => item.rol === 'ESTUDIANTE');
+    })
+  }
 
    aceptar(): void {
     this.match.id= this.form.value['id'];
     this.match.numero_match= this.form.value['numero_match']
     this.match.confirmacion_match = this.form.value['confirmacion_match']
-    this.match.reclutador.id= this.form.value['reclutadorId'];
-    this.match.estudiante.idEstudiante = this.form.value['estudianteId'];
-    if (this.form.value['reclutadorId'].length > 0 ){
+    this.match.reclutadorId= this.form.value['reclutadorId'];
+    this.match.estudianteId = this.form.value['estudianteId'];
+    if (this.form.value['reclutadorId']){
 
       if (this.edicion) {
         //actualice
@@ -51,14 +74,14 @@ export class MatchCreaeditaComponent implements OnInit{
         })
 
       } else {
-        this.matchService.Insert(this.match).subscribe(data => {
+        this.matchService.Insert(this.form.value).subscribe(data => {
           this.matchService.List().subscribe(data => {
             this.matchService.SetList(data);
           })
         })
       }
 
-      this.router.navigate(['/pages/Match']);
+      this.router.navigate(['Match']);
     } else {
       this.mensaje = "Complete todos los campos!";
     }

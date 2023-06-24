@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { MatDialogRef, MatDialog,MatDialogContent } from '@angular/material/dialog';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({

@@ -12,10 +12,6 @@
       <h1>Lista de Usuarios</h1>
     </div>
 
-    <div style="text-align: right;">
-      <button mat-raised-button class="color1" routerLink="/usuarios/nuevo">Nuevo</button>
-    </div>
-
     <mat-form-field>
             <input matInput (keyup)="filtrar($event)" placeholder="Buscar">
     </mat-form-field>
@@ -53,14 +49,14 @@
         <td mat-cell *matCellDef="let element"> {{element.contrasena_Usuario}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="tipo">
+      <ng-container matColumnDef="rol">
         <th mat-header-cell *matHeaderCellDef> Tipo de usuario </th>
-        <td mat-cell *matCellDef="let element"> {{element.tipo_Usuario}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.rol}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="key">
+      <ng-container matColumnDef="enabled">
         <th mat-header-cell *matHeaderCellDef> Key </th>
-        <td mat-cell *matCellDef="let element"> {{element.key}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.enabled}} </td>
       </ng-container>
 
       <ng-container matColumnDef="accion01">

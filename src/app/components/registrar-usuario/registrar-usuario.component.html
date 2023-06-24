@@ -52,23 +52,22 @@
                 <label class="input-group-text" for="inputGroupSelect01">Tipo de Perfil</label>
               </div>
               <select class="form-control" id="inputGroupSelect01" name="tipo" formControlName="tipo" >
-                <option value="estudiante">Estudiante</option>
-                <option value="reclutador">Reclutador</option>
-                <option value="admin">Admin</option>
+                <option value="ESTUDIANTE">Estudiante</option>
+                <option value="RECLUTADOR">Reclutador</option>
+                <option value="ADMIN">Admin</option>
               </select>
             </div>
 
-            <div id="clave" class="form-floating mb-3" [hidden]="this.form.value['tipo'] !== 'admin'">
-              <input matInput required placeholder="123" formControlName="key" class="form-control">
-              <label>Key</label>
-            </div>
+            
 
             <div class="d-grid gap-2 mt-2">
-              <button type="submit" class="btn btn-primary btn-lg" (submit)="registrar()">Registrar</button>
+              <button type="submit" class="btn btn-primary btn-lg" (submit)="registrar()">Guardar</button>
             </div>
-
             <p class="mt-3"><a routerLink="/login" style="color: #ff1e57">Volver</a></p>
 
         </form>
+        <div class="d-grid gap-2 mt-2" *ngIf="cont>0">
+            <button type="submit" class="btn btn-primary btn-lg" (click)="registrarrol()">Registrar</button>
+        </div>
     </div>
 </div>

@@ -9,3 +9,6 @@ mat-form-field {
   background-color:#333333 ;
   color:white;
 }
+.container{
+  width: 60%;
+}
