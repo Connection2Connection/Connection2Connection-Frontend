@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { Router, ActivatedRoute, Params } from '@angular/router'
+import { Rol } from 'src/app/model/rol';
+import { RolService } from 'src/app/service/rol.service';
 
 @Component({
   selector: 'app-usuario-creaedita',
@@ -12,6 +14,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router'
 export class UsuarioCreaeditaComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   u: Usuario = new Usuario();
+  r: Rol = new Rol();
   mensaje: string = "";
   id: number = 0;
   edicion: boolean = false;
@@ -19,6 +22,7 @@ export class UsuarioCreaeditaComponent implements OnInit {
 
   constructor(
     private uS: UsuarioService,
+    private rS: RolService,
     private route: ActivatedRoute,
     private router: Router
 
@@ -38,27 +42,24 @@ export class UsuarioCreaeditaComponent implements OnInit {
       nombre: new FormControl(),
       correo: new FormControl(),
       contraseña: new FormControl(),
-      tipo: new FormControl(),
-      key: new FormControl()
+      rol: new FormControl(),
     });
   }
 
   aceptar(): void {
     this.u.idUsuario= this.form.value['id'];
     this.u.dni_Usuario= this.form.value['dni'];
-    this.u.usuario_Usuario= this.form.value['usuario'];
+    this.u.username= this.form.value['usuario'];
     this.u.nombre_Usuario= this.form.value['nombre'];
     this.u.correo_Usuario= this.form.value['correo'];
     this.u.contrasena_Usuario= this.form.value['contraseña'];
-    this.u.tipo_Usuario= this.form.value['tipo'];
-    this.u.key= this.form.value['key'];
+    this.u.rol= this.form.value['tipo'];
     if (this.form.value['dni'] && this.form.value['dni'].length > 0 &&
     this.form.value['usuario'] && this.form.value['usuario'].length > 0 &&
     this.form.value['nombre'] && this.form.value['nombre'].length > 0 &&
     this.form.value['correo'] && this.form.value['correo'].length > 0 &&
     this.form.value['contraseña'] && this.form.value['contraseña'].length > 0 &&
-    this.form.value['tipo'].length > 0 &&
-    this.form.value['tipo'] !== 'admin') {
+    this.form.value['tipo'].length > 0 ) {
 
       if (this.edicion) {
         console.log("edit")
@@ -75,12 +76,24 @@ export class UsuarioCreaeditaComponent implements OnInit {
             this.uS.setList(data);
           })
         })
+        this.registrarrol()
       }
-      this.router.navigate(['usuarios']);
+      this.router.navigate(['/pages/usuarios']);
     }
       else {
         this.mensaje = "Complete los campos requeridos ¬¬";
       }
+  }
+
+  registrarrol(){
+    this.r.id=this.u.idUsuario
+    this.r.rol= this.u.rol
+    this.r.usuario.idUsuario=this.u.idUsuario
+    this.rS.Insert(this.r).subscribe(data=> {
+      this.rS.List().subscribe(data=>{
+        this.rS.SetList(data);
+      })
+    })
   }
 
   init() {
@@ -89,12 +102,11 @@ export class UsuarioCreaeditaComponent implements OnInit {
         this.form = new FormGroup({
           id: new FormControl(data.idUsuario),
           dni: new FormControl(data.dni_Usuario),
-          usuario: new FormControl(data.usuario_Usuario),
+          usuario: new FormControl(data.username),
           nombre: new FormControl(data.nombre_Usuario),
           correo: new FormControl(data.correo_Usuario),
           contraseña: new FormControl(data.contrasena_Usuario),
-          tipo: new FormControl(data.tipo_Usuario),
-          key: new FormControl(data.key)
+          tipo: new FormControl(data.rol)
         })
       })
     }

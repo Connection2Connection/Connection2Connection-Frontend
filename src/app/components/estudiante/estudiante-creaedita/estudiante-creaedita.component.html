@@ -45,7 +45,7 @@
       <br>
 
       <mat-form-field appearance="fill">
-        <mat-label>Select</mat-label>
+        <mat-label>Practicante</mat-label>
         <mat-select name="Practicante" formControlName="Practicante_Estudiante">
           <mat-option value=true>Si</mat-option>
           <mat-option value=false>No</mat-option>
@@ -73,14 +73,14 @@
         <mat-label>Usuario</mat-label>
         <mat-select formControlName="Usuario_Estudiante" [(value)]="idUsuarioSeleccionado" required>
           <mat-option *ngFor="let u of listau" [value]="u.idUsuario">
-            {{u.usuario_Usuario}}
+            {{u.username}}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <div style="text-align: center;">
 
         <button mat-raised-button class="color1">Aceptar</button>
-        <button mat-raised-button class="color2" routerLink="/estudiantes">Cancelar</button>
+        <button mat-raised-button class="color2" routerLink="/login">Cancelar</button>
         <br>
       </div>
       <p>{{mensaje}}</p>

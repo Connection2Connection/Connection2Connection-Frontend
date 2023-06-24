@@ -60,7 +60,7 @@ export class EstudianteCreaeditaComponent implements OnInit{
     this.estudiante.practicante_Estudiante= this.form.value['Practicante_Estudiante'];
     this.estudiante.descripcion_Estudiante= this.form.value['Descripcion_Estudiante'];
     this.estudiante.institucion_Estudiante.nombre_Institucion= this.form.value['Institucion_Estudiante.nombre_Institucion'];
-    this.estudiante.usuario_Estudiante.usuario_Usuario= this.form.value['Usuario_Estudiante.usuario_Usuario'];
+    this.estudiante.usuario_Estudiante.username= this.form.value['Usuario_Estudiante.username'];
     if (1>0){
       let u = new Usuario();
       u.idUsuario = this.idUsuarioSeleccionado;
@@ -102,7 +102,7 @@ export class EstudianteCreaeditaComponent implements OnInit{
           Practicante_Estudiante: new FormControl(data.practicante_Estudiante),
           Descripcion_Estudiante: new FormControl(data.descripcion_Estudiante),
           Institucion_Estudiante: new FormControl(data.institucion_Estudiante.nombre_Institucion),
-          Usuario_Estudiante: new FormControl(data.usuario_Estudiante.usuario_Usuario)
+          Usuario_Estudiante: new FormControl(data.usuario_Estudiante.username)
           })
       })
     }

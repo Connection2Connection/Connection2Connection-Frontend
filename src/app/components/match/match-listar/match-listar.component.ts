@@ -44,13 +44,13 @@ export class MatchListarComponent implements OnInit{
 
   getEstudiantes(): void {
     this.usuarioService.list().subscribe(resp => {
-      this.estudiantes = resp.filter(item => item.Tipo_Usuario === 'estudiante');
+      this.estudiantes = resp.filter(item => item.rol=== 'ESTUDIANTE');
     })
   }
 
   getReclutadores(): void {
     this.usuarioService.list().subscribe(resp => {
-      this.reclutadores = resp.filter(item => item.Tipo_Usuario === 'reclutador');
+      this.reclutadores = resp.filter(item => item.rol === 'RECLUTADOR');
     })
   }
 
@@ -71,10 +71,10 @@ export class MatchListarComponent implements OnInit{
   }
 
   nombreEstudiante(estudianteId: string) {
-    return this.estudiantes.find((item: any) => item.id === Number(estudianteId))?.Nombre_Usuario
+    return this.estudiantes.find((item: any) => item.id === Number(estudianteId))?.nombre_Usuario
   }
 
   nombreReclutador(reclutadorId: string) {
-    return this.reclutadores.find((item: any) => item.id === Number(reclutadorId))?.Nombre_Usuario
+    return this.reclutadores.find((item: any) => item.id === Number(reclutadorId))?.nombre_Usuario
   }
 }

@@ -47,13 +47,13 @@ export class MatchCreaeditaComponent implements OnInit{
 
   getReclutadores(): void {
     this.usuarioService.list().subscribe(resp => {
-      this.reclutadores = resp.filter(item => item.Tipo_Usuario === 'reclutador');
+      this.reclutadores = resp.filter(item => item.rol === 'RECLUTADOR');
     })
   }
 
   getEstudiantes(): void {
     this.usuarioService.list().subscribe(resp => {
-      this.estudiantes = resp.filter(item => item.Tipo_Usuario === 'estudiante');
+      this.estudiantes = resp.filter(item => item.rol === 'ESTUDIANTE');
     })
   }
 

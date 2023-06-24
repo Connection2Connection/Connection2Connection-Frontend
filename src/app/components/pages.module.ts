@@ -67,6 +67,8 @@ import { MatchCreaeditaComponent } from './match/match-creaedita/match-creaedita
 import { ReportesComponent } from './reportes/reportes.component';
 import { Reporte01Component } from './reportes/reporte01/reporte01.component';
 
+
+
 @NgModule({
   declarations: [
     EmpresaComponent,
