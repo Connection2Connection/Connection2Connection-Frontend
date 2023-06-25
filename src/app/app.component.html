@@ -22,8 +22,8 @@
   <div>
     <nav mat-tab-nav-bar ngClass = "tabs" *ngIf="open">
       <a mat-tab-link routerLink="/pages/Empresa" routerLinkActive="active-link">Empresa</a>
-      <a mat-tab-link routerLink="/pages/usuarios" routerLinkActive="active-link">Usuario</a>
-      <a mat-tab-link routerLink="/pages/requisitos" routerLinkActive="active-link">Requisito</a>
+      <a [hidden]="role=='ESTUDIANTE' || role=='RECLUTADOR'" mat-tab-link routerLink="/pages/usuarios" routerLinkActive="active-link">Usuario</a>
+      <a [hidden]="role=='ESTUDIANTE'" mat-tab-link routerLink="/pages/requisitos" routerLinkActive="active-link">Requisito</a>
       <a mat-tab-link routerLink="/pages/Calificacion" routerLinkActive="active-link">Calificacion</a>
       <a mat-tab-link routerLink="/pages/Calificacion_Estudiante" routerLinkActive="active-link">Calificacion_Estudiante</a>
       <a mat-tab-link routerLink="/pages/Institucion" routerLinkActive="active-link">Institucion</a>
@@ -33,7 +33,7 @@
       <a mat-tab-link routerLink="/pages/Reclutadores" routerLinkActive="active-link">Reclutadores</a>
       <a mat-tab-link routerLink="/pages/Puesto_trabajo" routerLinkActive="active-link">Puesto_trabajo</a>
       <a mat-tab-link routerLink="/pages/Match" routerLinkActive="active-link">Match</a>
-      <a mat-tab-link routerLink="/pages/Rol" routerLinkActive="active-link">Rol</a>
+      <a [hidden]="role=='ESTUDIANTE' || role=='RECLUTADOR'" mat-tab-link routerLink="/pages/Rol" routerLinkActive="active-link">Rol</a>
       <a mat-tab-link routerLink="/pages/Repositorio" routerLinkActive="active-link">Repositorio</a>
     </nav>
 

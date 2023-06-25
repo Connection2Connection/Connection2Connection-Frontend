@@ -1,8 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable,Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Estudiante } from '../model/estudiante';
+import { estudianteEdadDTO } from '../model/estudianteEdadDTO';
+import { estudianteEdadPromedioDTO } from '../model/estudianteEdadPromedioDTO';
+import { estudiantePracticasDTO } from '../model/estudiantePracticasDTO';
+import { estudianteSemestreDTO } from '../model/estudianteSemestreDTO';
+import { institucionEstudianteDTO } from '../model/institucionEstudianteDTO';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -48,5 +53,35 @@ export class EstudianteService {
   }
   setConfirmDelete(estado:Boolean){
     this.confirmarEliminacion.next(estado);
+  }
+  getEstudianteEdad(): Observable<estudianteEdadDTO[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<estudianteEdadDTO[]>(`${this.url}/mayoresymenores`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+  getEstudianteEdadPromedio(): Observable<estudianteEdadPromedioDTO[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<estudianteEdadPromedioDTO[]>(`${this.url}/promedioedad`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+  getEstudiantePracticas(): Observable<estudiantePracticasDTO[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<estudiantePracticasDTO[]>(`${this.url}/buscapracticasporcentaje`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+  getEstudianteSemestre(): Observable<estudianteSemestreDTO[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<estudianteSemestreDTO[]>(`${this.url}/cantidadestudiantesporsemestre`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+  getInstitucionEstudiante(): Observable<institucionEstudianteDTO[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<institucionEstudianteDTO[]>(`${this.url}/estudiantesporinstitucion`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 }
