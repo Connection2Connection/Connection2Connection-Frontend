@@ -2,7 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Reclutador } from '../model/reclutador';
-import { Subject } from 'rxjs';
+import { reclutadorMatchDTO } from 'src/app/model/reclutadorMatchDTO';
+import { Subject, Observable } from 'rxjs';
 const base_url= environment.base
 @Injectable({
   providedIn: 'root'
@@ -52,5 +53,11 @@ export class ReclutadorService {
   }
   SetConfirmDelete(estado:Boolean){
     this.confirmarEliminacion.next(estado);
+  }
+  MatchReclutador(): Observable<reclutadorMatchDTO[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<reclutadorMatchDTO[]>(`${this.url}/MatchReclutador`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 }

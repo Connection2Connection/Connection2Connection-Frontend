@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Empresa } from '../model/empresa';
 import { Observable, Subject } from 'rxjs';
 import { empresaReclutadorDTO } from 'src/app/model/empresaReclutadorDTO';
+import { empresaMatchDTO } from 'src/app/model/empresaMatchDTO';
 const base_url= environment.base
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,12 @@ export class EmpresaService {
   getEmpresabyReclutador(): Observable<empresaReclutadorDTO[]> {
     let token = sessionStorage.getItem("token");
     return this.http.get<empresaReclutadorDTO[]>(`${this.url}/empresa-count`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+  MatchEmpresa(): Observable<empresaMatchDTO[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<empresaMatchDTO[]>(`${this.url}/MatchEmpresa`, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
     });
   }

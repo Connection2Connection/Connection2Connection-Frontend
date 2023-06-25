@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { Usuario } from '../model/usuario';
+import { usuarioRolDTO } from '../model/usuarioRolDTO';
 const base_url=environment.base
 
 @Injectable({
@@ -53,5 +54,11 @@ export class UsuarioService {
   }
   setConfirmDelete(estado:Boolean){
     this.confirmarEliminacion.next(estado);
+  }
+  usuariosporrol(): Observable<usuarioRolDTO[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<usuarioRolDTO[]>(`${this.url}/usuariosporrol`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 }
