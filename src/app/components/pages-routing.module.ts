@@ -65,22 +65,30 @@ const routes: Routes = [
   {
     path:'carreras',component:CarreraComponent, children:[
 
-    { path:'nuevo', component:CarreraCreaeditaComponent },
+    { path:'nuevo/', component:CarreraCreaeditaComponent },
 
     {path:'edicion/:id', component:CarreraCreaeditaComponent}
   ],canActivate:[GuardService]
   },
   {
     path: 'estudiantes', component: EstudianteComponent, children: [
-      { path: 'nuevo', component: EstudianteCreaeditaComponent },
       { path: 'edicion/:id', component: EstudianteCreaeditaComponent }
     ],canActivate:[GuardService]
   },
   {
+    path: 'estudiantes', component: EstudianteComponent, children: [
+      { path: 'nuevo/:username', component: EstudianteCreaeditaComponent }
+    ]
+  },
+  {
     path: 'Reclutadores', component: ReclutadorComponent, children: [
-      { path: 'Crear', component: ReclutadorCreaeditaComponent},
       { path: 'Edicion/:id', component:ReclutadorCreaeditaComponent}
     ],canActivate:[GuardService]
+  },
+  {
+    path: 'Reclutadores', component: ReclutadorComponent, children: [
+      { path: 'Crear/:username', component: ReclutadorCreaeditaComponent}
+    ]
   },
   {
     path: 'Puesto_trabajo', component: PuestoTrabajoComponent, children: [

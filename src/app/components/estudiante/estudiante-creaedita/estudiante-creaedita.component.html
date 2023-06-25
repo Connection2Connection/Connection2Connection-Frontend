@@ -69,16 +69,11 @@
         </mat-select>
       </mat-form-field>
       <br>
-      <mat-form-field appearance="fill">
+      <mat-form-field class="example-full-width">
         <mat-label>Usuario</mat-label>
-        <mat-select formControlName="Usuario_Estudiante" [(value)]="idUsuarioSeleccionado" required>
-          <mat-option *ngFor="let u of listau" [value]="u.idUsuario">
-            {{u.username}}
-          </mat-option>
-        </mat-select>
+        <input matInput required placeholder="Usuario" formControlName="Usuario_Estudiante">
       </mat-form-field>
-      <div style="text-align: center;">
-
+      <div>
         <button mat-raised-button class="color1">Aceptar</button>
         <button mat-raised-button class="color2" routerLink="/login">Cancelar</button>
         <br>

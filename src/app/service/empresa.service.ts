@@ -16,10 +16,7 @@ export class EmpresaService {
   constructor(private http:HttpClient) { }
 
   List() {
-    let token = sessionStorage.getItem("token");
-    return this.http.get<Empresa[]>(this.url, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-    });
+    return this.http.get<Empresa[]>(this.url)
   }
 
   Insert(empresa: Empresa) {
@@ -38,10 +35,7 @@ export class EmpresaService {
   }
 
   ListId(id: number){
-    let token = sessionStorage.getItem("token");
-    return this.http.get<Empresa>(`${this.url}/${id}`, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-    });
+    return this.http.get<Empresa>(`${this.url}/${id}`)
   }
 
   Update(empresa: Empresa) {

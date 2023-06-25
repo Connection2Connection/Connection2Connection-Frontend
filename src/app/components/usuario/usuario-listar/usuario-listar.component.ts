@@ -13,11 +13,12 @@ import { LoginService } from 'src/app/service/login.service';
   styleUrls: ['./usuario-listar.component.css']
 })
 export class UsuarioListarComponent implements OnInit {
-  role:string="";
+
+  role:string=""
   lista:Usuario[]=[]
   dataSource: MatTableDataSource<Usuario> =new MatTableDataSource();
   idMayor: number = 0;
-  displayedColumns: string[]=['id','dni','usuario','nombre','email','contraseña','rol','enabled','accion01','accion02']
+  displayedColumns: string[]=['id','dni','usuario','nombre','email','rol','enabled','accion01','accion02']
   @ViewChild(MatPaginator,{ static:true }) paginator!: MatPaginator;
   constructor(private uS: UsuarioService, private dialog: MatDialog,private ls:LoginService){
 
