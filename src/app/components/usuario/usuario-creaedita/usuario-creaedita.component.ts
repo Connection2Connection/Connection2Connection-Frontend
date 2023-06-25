@@ -54,15 +54,10 @@ export class UsuarioCreaeditaComponent implements OnInit {
     this.u.correo_Usuario= this.form.value['correo'];
     this.u.contrasena_Usuario= this.form.value['contraseña'];
     this.u.rol= this.form.value['rol'];
-    if (this.form.value['dni'] && this.form.value['dni'].length > 0 &&
-    this.form.value['usuario'] && this.form.value['usuario'].length > 0 &&
-    this.form.value['nombre'] && this.form.value['nombre'].length > 0 &&
-    this.form.value['correo'] && this.form.value['correo'].length > 0 &&
-    this.form.value['contraseña'] && this.form.value['contraseña'].length > 0 &&
-    this.form.value['rol'].length > 0 ) {
+    if (1>0) {
 
       if (this.edicion) {
-        console.log("edit")
+        console.log(this.u)
         //actualice
         this.uS.update(this.u).subscribe(() => {
           this.uS.list().subscribe(data => {

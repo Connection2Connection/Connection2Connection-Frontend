@@ -34,15 +34,15 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Reclutador</mat-label>
-        <mat-select formControlName="reclutadorId">
-          <mat-option [value]="reclutador.id" *ngFor="let reclutador of reclutadores">{{reclutador.nombre_Usuario}}</mat-option>
+        <mat-select formControlName="reclutador" [(value)]="idReclutador">
+          <mat-option *ngFor="let reclutador of reclutadores" [value]="reclutador.id">{{reclutador.usuario.nombre_Usuario}}</mat-option>
         </mat-select>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">
         <mat-label>Estudiante</mat-label>
-        <mat-select formControlName="estudianteId">
-          <mat-option [value]="estudiante.id" *ngFor="let estudiante of estudiantes">{{ estudiante.nombre_Usuario }}</mat-option>
+        <mat-select formControlName="estudiante" [(value)]="idEstudiante" >
+          <mat-option  *ngFor="let estudiante of estudiantes" [value]="estudiante.idEstudiante">{{ estudiante.usuario_Estudiante.nombre_Usuario }}</mat-option>
         </mat-select>
       </mat-form-field>
       <br>

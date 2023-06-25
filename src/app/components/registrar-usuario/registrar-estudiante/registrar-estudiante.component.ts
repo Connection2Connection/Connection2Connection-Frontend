@@ -19,6 +19,7 @@ export class RegistrarEstudianteComponent implements OnInit{
   estudiante : Estudiante = new Estudiante();
   mensaje: string = "";
   id: number = 0;
+  username: string="";
   edicion: boolean = false;
   listau: Usuario[] = [];
   idUsuarioSeleccionado: number = 0;
@@ -34,7 +35,9 @@ export class RegistrarEstudianteComponent implements OnInit{
     this.route.params.subscribe((data: Params) =>{
     this.id = data['id'];
     this.edicion = data['id']!=null;
+    this.username= data['username'];
     this.init();
+    console.log(this.username)
     })
 
     this.uS.list().subscribe(data => { this.listau = data });
@@ -48,8 +51,10 @@ export class RegistrarEstudianteComponent implements OnInit{
     Practicante_Estudiante: new FormControl(),
     Descripcion_Estudiante: new FormControl(),
     Institucion_Estudiante: new FormControl(''),
-    Usuario_Estudiante: new FormControl('')
+    Usuario_Estudiante: new FormControl(this.username)
+
     });
+    console.log(this.username)
   }
 
   aceptar(): void {
@@ -60,14 +65,13 @@ export class RegistrarEstudianteComponent implements OnInit{
     this.estudiante.practicante_Estudiante= this.form.value['Practicante_Estudiante'];
     this.estudiante.descripcion_Estudiante= this.form.value['Descripcion_Estudiante'];
     this.estudiante.institucion_Estudiante.nombre_Institucion= this.form.value['Institucion_Estudiante.nombre_Institucion'];
-    this.estudiante.usuario_Estudiante.username= this.form.value['Usuario_Estudiante.username'];
     if (1>0){
       let u = new Usuario();
-      u.idUsuario = this.idUsuarioSeleccionado;
       let i=new Institucion_Educativa();
       i.id=this.idInstitucionSeleccionado;
+      
+      console.log(this.estudiante.usuario_Estudiante.username)
       this.estudiante.institucion_Estudiante=i;
-      this.estudiante.usuario_Estudiante=u;
 
       if (this.edicion) {
         //actualice
@@ -78,14 +82,19 @@ export class RegistrarEstudianteComponent implements OnInit{
         })
 
       } else {
-        this.estudianteService.insert(this.estudiante).subscribe((data) => {
-          this.estudianteService.list().subscribe(data => {
-            this.estudianteService.setList(data);
+        this.uS.listUsername(this.username).subscribe(data=>{
+          u=data;
+          this.estudiante.usuario_Estudiante=u;
+          this.estudianteService.insert(this.estudiante).subscribe((data) => {
+            this.estudianteService.list().subscribe(data => {
+              this.estudianteService.setList(data);
+            })
           })
         })
+        console.log(this.estudiante.usuario_Estudiante.username)
       }
 
-      this.router.navigate(['/pages/estudiantes']);
+      this.router.navigate(['login']);
     } else {
       this.mensaje = "Complete todos los campos ¬¬";
     }
@@ -109,5 +118,3 @@ export class RegistrarEstudianteComponent implements OnInit{
   }
 
 }
-
-

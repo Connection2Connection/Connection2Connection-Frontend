@@ -51,8 +51,8 @@ export class EstudianteCreaeditaComponent implements OnInit{
     Practicante_Estudiante: new FormControl(),
     Descripcion_Estudiante: new FormControl(),
     Institucion_Estudiante: new FormControl(''),
-    Usuario_Estudiante: new FormControl(this.username)
-
+    Usuario_Estudiante: new FormControl(this.username),
+    Usuario: new FormControl('')
     });
     console.log(this.username)
   }
@@ -74,12 +74,16 @@ export class EstudianteCreaeditaComponent implements OnInit{
       this.estudiante.institucion_Estudiante=i;
 
       if (this.edicion) {
+        this.username=this.form.value['Usuario_Estudiante'];
+        console.log(this.username)
+        this.estudiante.usuario_Estudiante=this.form.value['Usuario'];
         //actualice
         this.estudianteService.update(this.estudiante).subscribe((data) => {
           this.estudianteService.list().subscribe(data => {
             this.estudianteService.setList(data);
           })
         })
+        this.router.navigate(['pages/estudiantes']);
 
       } else {
         this.uS.listUsername(this.username).subscribe(data=>{
@@ -92,9 +96,8 @@ export class EstudianteCreaeditaComponent implements OnInit{
           })
         })
         console.log(this.estudiante.usuario_Estudiante.username)
+        this.router.navigate(['login']);
       }
-
-      this.router.navigate(['login']);
     } else {
       this.mensaje = "Complete todos los campos ¬¬";
     }
@@ -111,7 +114,8 @@ export class EstudianteCreaeditaComponent implements OnInit{
           Practicante_Estudiante: new FormControl(data.practicante_Estudiante),
           Descripcion_Estudiante: new FormControl(data.descripcion_Estudiante),
           Institucion_Estudiante: new FormControl(data.institucion_Estudiante.nombre_Institucion),
-          Usuario_Estudiante: new FormControl(data.usuario_Estudiante.username)
+          Usuario_Estudiante: new FormControl(data.usuario_Estudiante.username),
+          Usuario: new FormControl(data.usuario_Estudiante)
           })
       })
     }

@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event : any) =>{
 
-      if(event.url === '/' || event.url==='/#Inicio' || event.url==='/#Nosotros' || event.url==='/#Servicios' || event.url==='/login' || event.url==='/registrar-usuario' || event.url==='/pages/estudiantes/nuevo/:username'|| event.url==='/pages/Reclutadores/Crear/:username') {
+      if(event.url === '/' || event.url==='/#Inicio' || event.url==='/#Nosotros' || event.url==='/#Servicios' || event.url==='/login' || event.url==='/registrar-usuario' || event.url==='/registrar-reclutador/:{username}'|| event.url==='/registrar-estudiante/:{username}') {
         this.open = false;
       } else{
         this.open=true;

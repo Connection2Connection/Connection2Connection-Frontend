@@ -13,8 +13,8 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'registrar-usuario', component: RegistrarUsuarioComponent},
-  {path: 'registrar-estudiante', component: RegistrarEstudianteComponent},
-  {path: 'registrar-reclutador', component: RegistrarReclutadorComponent},
+  {path: 'registrar-estudiante/:username', component: RegistrarEstudianteComponent},
+  {path: 'registrar-reclutador/:username', component: RegistrarReclutadorComponent},
   {
     path: 'pages',
     loadChildren: () => import('./components/pages.module').then((m) => m.PagesModule),
