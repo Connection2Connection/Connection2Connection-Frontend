@@ -22,13 +22,17 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoginComponent } from './components/login/login.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { RegistrarEstudianteComponent } from './components/registrar-usuario/registrar-estudiante/registrar-estudiante.component';
+import { RegistrarReclutadorComponent } from './components/registrar-usuario/registrar-reclutador/registrar-reclutador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LandingComponent,
-    RegistrarUsuarioComponent
+    RegistrarUsuarioComponent,
+    RegistrarEstudianteComponent,
+    RegistrarReclutadorComponent
   ],
   imports: [
     BrowserModule,

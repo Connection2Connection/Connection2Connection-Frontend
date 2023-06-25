@@ -74,6 +74,7 @@ import { Reporte02Component } from './reportes/reporte02/reporte02.component';
 
 
 
+
 @NgModule({
   declarations: [
     EmpresaComponent,

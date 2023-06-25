@@ -7,6 +7,7 @@ import { Match } from 'src/app/model/match';
 import { MatchService } from 'src/app/service/match.service';
 import { MatchDialogoComponent } from './match-dialogo/match-dialogo.component';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-match-listar',
@@ -14,6 +15,7 @@ import { UsuarioService } from 'src/app/service/usuario.service';
   styleUrls: ['./match-listar.component.css']
 })
 export class MatchListarComponent implements OnInit{
+  role:string="";
   dataSourceMatch: MatTableDataSource<Match>=new MatTableDataSource();
   idMayor: number = 0
   displayedColumnsMatch: string[] = ['id', 'numero_match','confirmacion_match','reclutador', 'estudiante', 'accion01', 'accion02']
@@ -21,12 +23,14 @@ export class MatchListarComponent implements OnInit{
   reclutadores: any = [];
   @ViewChild(MatPaginator,{ static:true }) paginator!: MatPaginator;
 
-  constructor(private matchService : MatchService, private dialog: MatDialog, private usuarioService: UsuarioService) {
+  constructor(private matchService : MatchService, private dialog: MatDialog, private usuarioService: UsuarioService, private ls:LoginService) {
     this.getEstudiantes();
     this.getReclutadores();
   }
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
     this.matchService.List().subscribe(data=> {
       this.dataSourceMatch = new MatTableDataSource(data);
       this.dataSourceMatch.paginator = this.paginator;

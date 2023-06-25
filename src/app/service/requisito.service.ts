@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable} from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
 import { Requisito } from '../model/requisito';
@@ -17,10 +17,16 @@ export class RequisitoService
 
   constructor(private http: HttpClient) { }
   list() {
-    return this.http.get<Requisito[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Requisito[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   insert(Calificacion: Requisito) {
-    return this.http.post(this.url, Calificacion);
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, Calificacion, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   setList(listaNueva: Requisito[]) {
@@ -30,14 +36,23 @@ export class RequisitoService
     return this.listaCambio.asObservable();
   }
   listId(id: number) {
-    return this.http.get<Requisito>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Requisito>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   update(aut: Requisito) {
-    return this.http.put(this.url + "/" + aut.id, aut);
+    let token = sessionStorage.getItem("token");
+   return this.http.put(this.url, aut, {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
 
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   getConfirmDelete(){

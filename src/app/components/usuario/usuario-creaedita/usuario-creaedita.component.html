@@ -44,17 +44,15 @@
         <input matInput required placeholder="Contraseña" formControlName="contraseña">
       </mat-form-field>
       <br>
-      <mat-form-field appearance="fill">
-        <mat-label>Select</mat-label>
-        <mat-select name="tipo" formControlName="tipo">
-          <mat-option value="ADMIN">admin</mat-option>
-          <mat-option value="ESTUDIANTE">estudiante</mat-option>
-          <mat-option value="RECLUTADOR">reclutador</mat-option>
-        </mat-select>
+
+      <mat-form-field class="example-full-width" readonly>
+        <mat-label >Rol</mat-label>
+        <input matInput required placeholder="rol" formControlName="rol" readonly>
       </mat-form-field>
+
       <div style="text-align: center;">
         <button mat-raised-button class="color1">Aceptar</button>
-        <button mat-raised-button class="color2" routerLink="/usuarios">Cancelar</button>
+        <button mat-raised-button class="color2" routerLink="/pages/usuarios">Cancelar</button>
       <br>
       </div>
       <p>{{mensaje}}</p>
