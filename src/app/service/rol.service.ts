@@ -16,17 +16,11 @@ export class RolService {
   constructor(private http:HttpClient) { }
 
   List() {
-    let token = sessionStorage.getItem("token");
-    return this.http.get<Rol[]>(this.url, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-    });
+    return this.http.get<Rol[]>(this.url)
   }
 
   Insert(rol: Rol) {
-    let token = sessionStorage.getItem("token");
-    return this.http.post(this.url, rol, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-    });
+    return this.http.post(this.url, rol)
   }
 
   SetList(ListaNueva: Rol[]){

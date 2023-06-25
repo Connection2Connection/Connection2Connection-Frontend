@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { Match } from 'src/app/model/match';
+import { Matchs } from 'src/app/model/matchs';
 import { MatchService } from 'src/app/service/match.service';
 import { MatchDialogoComponent } from './match-dialogo/match-dialogo.component';
 import { UsuarioService } from 'src/app/service/usuario.service';
@@ -16,7 +16,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class MatchListarComponent implements OnInit{
   role:string="";
-  dataSourceMatch: MatTableDataSource<Match>=new MatTableDataSource();
+  dataSourceMatch: MatTableDataSource<Matchs>=new MatTableDataSource();
   idMayor: number = 0
   displayedColumnsMatch: string[] = ['id', 'numero_match','confirmacion_match','reclutador', 'estudiante', 'accion01', 'accion02']
   estudiantes: any = [];
@@ -24,8 +24,6 @@ export class MatchListarComponent implements OnInit{
   @ViewChild(MatPaginator,{ static:true }) paginator!: MatPaginator;
 
   constructor(private matchService : MatchService, private dialog: MatDialog, private usuarioService: UsuarioService, private ls:LoginService) {
-    this.getEstudiantes();
-    this.getReclutadores();
   }
 
   ngOnInit(): void {
@@ -46,18 +44,6 @@ export class MatchListarComponent implements OnInit{
 
   }
 
-  getEstudiantes(): void {
-    this.usuarioService.list().subscribe(resp => {
-      this.estudiantes = resp.filter(item => item.rol=== 'ESTUDIANTE');
-    })
-  }
-
-  getReclutadores(): void {
-    this.usuarioService.list().subscribe(resp => {
-      this.reclutadores = resp.filter(item => item.rol === 'RECLUTADOR');
-    })
-  }
-
   filtrar(e:any){
     this.dataSourceMatch.filter = e.target.value.trim();
   }
@@ -72,13 +58,5 @@ export class MatchListarComponent implements OnInit{
         this.matchService.SetList(data);
       })
     })
-  }
-
-  nombreEstudiante(estudianteId: string) {
-    return this.estudiantes.find((item: any) => item.id === Number(estudianteId))?.nombre_Usuario
-  }
-
-  nombreReclutador(reclutadorId: string) {
-    return this.reclutadores.find((item: any) => item.id === Number(reclutadorId))?.nombre_Usuario
   }
 }
