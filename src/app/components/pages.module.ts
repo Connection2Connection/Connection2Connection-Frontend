@@ -71,6 +71,18 @@ import { RepositorioListarComponent } from './repositorio/repositorio-listar/rep
 import { RepositorioDialogoComponent } from './repositorio/repositorio-listar/repositorio-dialogo/repositorio-dialogo.component';
 import { RepositorioCreaeditaComponent } from './repositorio/repositorio-creaedita/repositorio-creaedita.component';
 import { Reporte02Component } from './reportes/reporte02/reporte02.component';
+import { Reporte03Component } from './reportes/reporte03/reporte03.component';
+import { Reporte04Component } from './reportes/reporte04/reporte04.component';
+import { Reporte05Component } from './reportes/reporte05/reporte05.component';
+import { Reporte06Component } from './reportes/reporte06/reporte06.component';
+import { Reporte07Component } from './reportes/reporte07/reporte07.component';
+import { Reporte08Component } from './reportes/reporte08/reporte08.component';
+import { Reporte09Component } from './reportes/reporte09/reporte09.component';
+import { Reporte10Component } from './reportes/reporte10/reporte10.component';
+import { CarreraEstudianteComponent } from './carrera-estudiante/carrera-estudiante.component';
+import { CarreraEstudianteListarComponent } from './carrera-estudiante/carrera-estudiante-listar/carrera-estudiante-listar.component';
+import { CarreraEstudianteDialogoComponent } from './carrera-estudiante/carrera-estudiante-listar/carrera-estudiante-dialogo/carrera-estudiante-dialogo.component';
+import { CarreraEstudianteCreaeditaComponent } from './carrera-estudiante/carrera-estudiante-creaedita/carrera-estudiante-creaedita.component';
 
 
 
@@ -131,7 +143,19 @@ import { Reporte02Component } from './reportes/reporte02/reporte02.component';
     RepositorioListarComponent,
     RepositorioDialogoComponent,
     RepositorioCreaeditaComponent,
-    Reporte02Component
+    Reporte02Component,
+    Reporte03Component,
+    Reporte04Component,
+    Reporte05Component,
+    Reporte06Component,
+    Reporte07Component,
+    Reporte08Component,
+    Reporte09Component,
+    Reporte10Component,
+    CarreraEstudianteComponent,
+    CarreraEstudianteListarComponent,
+    CarreraEstudianteDialogoComponent,
+    CarreraEstudianteCreaeditaComponent
   ],
   imports: [
     CommonModule,

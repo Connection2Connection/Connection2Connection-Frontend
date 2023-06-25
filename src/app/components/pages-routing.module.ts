@@ -30,6 +30,16 @@ import { Reporte01Component } from './reportes/reporte01/reporte01.component';
 import { RepositorioComponent } from './repositorio/repositorio.component';
 import { RepositorioCreaeditaComponent } from './repositorio/repositorio-creaedita/repositorio-creaedita.component';
 import { Reporte02Component } from './reportes/reporte02/reporte02.component';
+import { Reporte03Component } from './reportes/reporte03/reporte03.component';
+import { Reporte04Component } from './reportes/reporte04/reporte04.component';
+import { Reporte05Component } from './reportes/reporte05/reporte05.component';
+import { Reporte06Component } from './reportes/reporte06/reporte06.component';
+import { Reporte07Component } from './reportes/reporte07/reporte07.component';
+import { Reporte08Component } from './reportes/reporte08/reporte08.component';
+import { Reporte09Component } from './reportes/reporte09/reporte09.component';
+import { Reporte10Component } from './reportes/reporte10/reporte10.component';
+import { CarreraEstudianteComponent } from './carrera-estudiante/carrera-estudiante.component';
+import { CarreraEstudianteCreaeditaComponent } from './carrera-estudiante/carrera-estudiante-creaedita/carrera-estudiante-creaedita.component';
 
 const routes: Routes = [
   {
@@ -69,6 +79,12 @@ const routes: Routes = [
 
     {path:'edicion/:id', component:CarreraCreaeditaComponent}
   ],canActivate:[GuardService]
+  },
+  {
+    path: 'carrera_estudiante', component: CarreraEstudianteComponent, children: [
+      { path: 'Crear', component: CarreraEstudianteCreaeditaComponent},
+      { path: 'Edicion/:id', component:CarreraEstudianteCreaeditaComponent}
+    ],canActivate:[GuardService]
   },
   {
     path: 'estudiantes', component: EstudianteComponent, children: [
@@ -117,6 +133,30 @@ const routes: Routes = [
   },
   {
     path: 'Reporte02', component: Reporte02Component, canActivate:[GuardService]
+  },
+  {
+    path: 'Reporte03', component: Reporte03Component, canActivate:[GuardService]
+  },
+  {
+    path: 'Reporte04', component: Reporte04Component, canActivate:[GuardService]
+  },
+  {
+    path: 'Reporte05', component: Reporte05Component, canActivate:[GuardService]
+  },
+  {
+    path: 'Reporte06', component: Reporte06Component, canActivate:[GuardService]
+  },
+  {
+    path: 'Reporte07', component: Reporte07Component, canActivate:[GuardService]
+  },
+  {
+    path: 'Reporte08', component: Reporte08Component, canActivate:[GuardService]
+  },
+  {
+    path: 'Reporte09', component: Reporte09Component, canActivate:[GuardService]
+  },
+  {
+    path: 'Reporte10', component: Reporte10Component, canActivate:[GuardService]
   }
 ]
 
