@@ -14,16 +14,10 @@ export class UsuarioService {
   private confirmarEliminacion = new Subject<Boolean>()
   constructor(private http:HttpClient) { }
   list() {
-    let token = sessionStorage.getItem("token");
-    return this.http.get<Usuario[]>(this.url, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-    });
+    return this.http.get<Usuario[]>(this.url);
   }
   insert(u: Usuario){
-    let token = sessionStorage.getItem("token");
-    return this.http.post(this.url, u, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-    });
+    return this.http.post(this.url,u)
   }
   setList(ListaNueva: Usuario[]){
     this.listaCambio.next(ListaNueva);

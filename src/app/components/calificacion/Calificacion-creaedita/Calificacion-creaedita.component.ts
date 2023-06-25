@@ -27,18 +27,18 @@ export class CalificacionCreaeditaComponent implements OnInit {
     })
     this.form = new FormGroup({
       id: new FormControl(),
-      id_Estudiante: new FormControl(),
-      Calificacion: new FormControl(),
+      idEstudiante_Calificacion: new FormControl(),
+      calificacion_Calificacion: new FormControl(),
     });
   }
   aceptar(): void {
     this.Calificacion.id = this.form.value['id'];
-    this.Calificacion.id_Estudiante = this.form.value['id_Estudiante'];
-    this.Calificacion.Calificacion = this.form.value['Calificacion'];
-    if (this.form.value['id_Estudiante'].length > 0 &&
-      this.form.value['Calificacion'].length > 0 &&
-      this.form.value['Calificacion'] >= 0 &&
-      this.form.value['Calificacion'] <= 5) {
+    this.Calificacion.idEstudiante_Calificacion = this.form.value['idEstudiante_Calificacion'];
+    this.Calificacion.calificacion_Calificacion = this.form.value['calificacion_Calificacion'];
+    if (this.form.value['idEstudiante_Calificacion'].length > 0 ||
+      this.form.value['calificacion_Calificacion'].length > 0 &&
+      this.form.value['calificacion_Calificacion'] >= 0 &&
+      this.form.value['calificacion_Calificacion'] <= 5) {
 
       if (this.edicion) {
         this.aS.update(this.Calificacion).subscribe((data) => {
@@ -53,7 +53,7 @@ export class CalificacionCreaeditaComponent implements OnInit {
           })
         })
       }
-      this.router.navigate(['Calificacion']);
+      this.router.navigate(['/pages/Calificacion']);
     } else {
       this.mensaje = "Ocurrio un problema en el registro, revisa lo que ingresaste";
     }
@@ -64,8 +64,8 @@ export class CalificacionCreaeditaComponent implements OnInit {
       this.aS.listId(this.id).subscribe(data => {
         this.form = new FormGroup({
           id: new FormControl(data.id),
-          id_Estudiante: new FormControl(data.id_Estudiante),
-          Calificacion: new FormControl(data.Calificacion),
+          idEstudiante_Calificacion: new FormControl(data.idEstudiante_Calificacion),
+          calificacion_Calificacion: new FormControl(data.calificacion_Calificacion),
         })
       })
     }

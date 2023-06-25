@@ -56,7 +56,7 @@ export class CarreraCreaeditaComponent implements OnInit {
           })
         })
       }
-      this.router.navigate(['carreras']);
+      this.router.navigate(['/pages/carreras']);
       }else{
 
       this.mensaje="Complete los campos requeridos!!!";
