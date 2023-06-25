@@ -29,7 +29,7 @@
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">
-        <mat-label>Calificacion</mat-label>
+        <mat-label>Id_Calificacion</mat-label>
         <mat-select formControlName="Estudiante_Calificacion" [(value)]="idCalificacionSeleccionado" required>
           <mat-option *ngFor="let c of listac" [value]="c.id">
             {{c.id}}
@@ -40,7 +40,7 @@
       <div style="text-align: center;">
 
       <button mat-raised-button class="color1">Aceptar</button>
-      <button mat-raised-button class="color2" routerLink="/Calificacion_Estudiante">Cancelar</button>
+      <button mat-raised-button class="color2" routerLink="/pages/Calificacion_Estudiante">Cancelar</button>
       <br>
       </div>
       <p>{{mensaje}}</p>

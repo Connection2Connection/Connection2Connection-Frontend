@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Match } from '../model/match';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 const base_url= environment.base
 
 @Injectable({
@@ -16,11 +16,17 @@ export class MatchService {
   constructor(private http:HttpClient) { }
 
   List() {
-    return this.http.get<Match[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Match[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   Insert(match : Match) {
-    return this.http.post(this.url, match)
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, match, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   SetList(ListaNueva: Match[]){
@@ -32,15 +38,23 @@ export class MatchService {
   }
 
   ListId(id: number){
-    return this.http.get<Match>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Match>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   Update(match : Match) {
-
-    return this.http.put(this.url, match)
+    let token = sessionStorage.getItem("token");
+   return this.http.put(this.url, match, {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   Delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   GetConfirmDelete(){

@@ -15,25 +15,16 @@ export class ReclutadorService {
   constructor(private http:HttpClient) { }
 
   List() {
-    let token = sessionStorage.getItem("token");
-    return this.http.get<Reclutador[]>(this.url, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-    });
+    return this.http.get<Reclutador[]>(this.url);
   }
-
-  Insert(reclutador: Reclutador) {
-    let token = sessionStorage.getItem("token");
-    return this.http.post(this.url, reclutador, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-    });
+  Insert(reclutador: Reclutador){
+    return this.http.post(this.url,reclutador)
   }
-
   SetList(ListaNueva: Reclutador[]){
-    this.listCambio.next(ListaNueva)
+    this.listCambio.next(ListaNueva);
   }
-
   GetList(){
-    return this.listCambio.asObservable()
+    return this.listCambio.asObservable();
   }
 
   ListId(id: number){

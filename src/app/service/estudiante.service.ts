@@ -21,29 +21,29 @@ export class EstudianteService {
   setList(ListaNueva: Estudiante[]){
     this.listaCambio.next(ListaNueva);
   }
-    getList(){
-      return this.listaCambio.asObservable();
-    }
-    listId(id: number) {
-      let token = sessionStorage.getItem("token");
-      return this.http.get<Estudiante>(`${this.url}/${id}`, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-    });
-    }
-    update(au:Estudiante){
-      return this.http.put(this.url+"/"+au.idEstudiante,au)
-    }
-    delete(id: number) {
-      let token = sessionStorage.getItem("token");
-      return this.http.delete(`${this.url}/${id}`, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-    });
-    }
+  getList(){
+    return this.listaCambio.asObservable();
+  }
+  listId(id: number) {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Estudiante>(`${this.url}/${id}`, {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
+  }
+  update(au:Estudiante){
+    return this.http.put(this.url+"/"+au.idEstudiante,au)
+  }
+  delete(id: number) {
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
+  }
 
-    getConfirmDelete(){
-      return this.confirmarEliminacion.asObservable();
-    }
-    setConfirmDelete(estado:Boolean){
-      this.confirmarEliminacion.next(estado);
-    }
+  getConfirmDelete(){
+    return this.confirmarEliminacion.asObservable();
+  }
+  setConfirmDelete(estado:Boolean){
+    this.confirmarEliminacion.next(estado);
+  }
 }
