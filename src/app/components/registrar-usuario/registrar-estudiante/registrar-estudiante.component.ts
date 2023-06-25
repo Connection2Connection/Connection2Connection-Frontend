@@ -9,11 +9,11 @@ import { InstitucionService } from 'src/app/service/institucion.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
-  selector: 'app-estudiante-creaedita',
-  templateUrl: './estudiante-creaedita.component.html',
-  styleUrls: ['./estudiante-creaedita.component.css']
+  selector: 'app-registrar-estudiante',
+  templateUrl: './registrar-estudiante.component.html',
+  styleUrls: ['./registrar-estudiante.component.css']
 })
-export class EstudianteCreaeditaComponent implements OnInit{
+export class RegistrarEstudianteComponent implements OnInit{
 
   form: FormGroup = new FormGroup({});
   estudiante : Estudiante = new Estudiante();
@@ -109,4 +109,5 @@ export class EstudianteCreaeditaComponent implements OnInit{
   }
 
 }
+
 

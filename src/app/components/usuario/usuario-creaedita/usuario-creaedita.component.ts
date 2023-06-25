@@ -53,13 +53,13 @@ export class UsuarioCreaeditaComponent implements OnInit {
     this.u.nombre_Usuario= this.form.value['nombre'];
     this.u.correo_Usuario= this.form.value['correo'];
     this.u.contrasena_Usuario= this.form.value['contraseña'];
-    this.u.rol= this.form.value['tipo'];
+    this.u.rol= this.form.value['rol'];
     if (this.form.value['dni'] && this.form.value['dni'].length > 0 &&
     this.form.value['usuario'] && this.form.value['usuario'].length > 0 &&
     this.form.value['nombre'] && this.form.value['nombre'].length > 0 &&
     this.form.value['correo'] && this.form.value['correo'].length > 0 &&
     this.form.value['contraseña'] && this.form.value['contraseña'].length > 0 &&
-    this.form.value['tipo'].length > 0 ) {
+    this.form.value['rol'].length > 0 ) {
 
       if (this.edicion) {
         console.log("edit")
@@ -106,7 +106,7 @@ export class UsuarioCreaeditaComponent implements OnInit {
           nombre: new FormControl(data.nombre_Usuario),
           correo: new FormControl(data.correo_Usuario),
           contraseña: new FormControl(data.contrasena_Usuario),
-          tipo: new FormControl(data.rol)
+          rol: new FormControl(data.rol)
         })
       })
     }

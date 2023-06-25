@@ -38,7 +38,7 @@ export class PuestoTrabajoCreaeditaComponent implements OnInit{
     this.puesto_trabajo.id= this.form.value['id'];
     this.puesto_trabajo.reclutador.id= this.form.value['reclutadorId'];
     this.puesto_trabajo.requisito.id = this.form.value['requisitoId'];
-    if (this.form.value['reclutadorId'].length > 0 ){
+    if (1 > 0 ){
 
       if (this.edicion) {
         //actualice
@@ -56,7 +56,7 @@ export class PuestoTrabajoCreaeditaComponent implements OnInit{
         })
       }
 
-      this.router.navigate(['Puesto_trabajo']);
+      this.router.navigate(['/pages/Puesto_trabajo']);
     } else {
       this.mensaje = "Complete todos los campos!";
     }

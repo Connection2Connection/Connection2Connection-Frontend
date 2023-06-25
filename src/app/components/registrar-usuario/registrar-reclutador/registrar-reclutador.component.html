@@ -10,7 +10,7 @@
   <div class="container">
     <div style="text-align: center;">
 
-      <h1>Registro de Puesto_trabajo</h1>
+      <h1>Registro de Reclutadores</h1>
     </div>
     <form [formGroup]="form" (submit)="aceptar()">
 
@@ -20,19 +20,24 @@
       </mat-form-field>
       <br>
       <mat-form-field class="example-full-width">
-        <mat-label>reclutador_id:</mat-label>
-        <input matInput required placeholder="Descripcion" formControlName="reclutadorId">
+        <mat-label>Descripcion:</mat-label>
+        <input matInput required placeholder="Descripcion" formControlName="descripcion_Reclutador">
       </mat-form-field>
       <br>
       <mat-form-field class="example-full-width">
-        <mat-label>requisitos_id:</mat-label>
-        <input matInput required placeholder="Ingrese id empresa" formControlName="requisitoId">
+        <mat-label>Empresa_id:</mat-label>
+        <input matInput required placeholder="Ingrese id empresa" formControlName="empresaId">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Usuario_id:</mat-label>
+        <input matInput required placeholder="Ingrese id usuario" formControlName="usuarioId">
       </mat-form-field>
       <br>
       <div style="text-align: center;">
 
       <button mat-raised-button class="color1">Aceptar</button>
-      <button mat-raised-button class="color2" routerLink="/pages/Puesto_trabajo">Cancelar</button>
+      <button mat-raised-button class="color2" routerLink="/login">Cancelar</button>
       <br>
       </div>
       <p>{{mensaje}}</p>
@@ -40,4 +45,3 @@
   </div>
 </body>
 </html>
-
