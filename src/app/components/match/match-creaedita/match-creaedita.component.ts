@@ -38,7 +38,7 @@ export class MatchCreaeditaComponent implements OnInit{
      id: new FormControl(),
      reclutadorId: new FormControl(),
      estudianteId: new FormControl(),
-     numero_match: new FormControl(),
+     codigo_match: new FormControl(),
      confirmacion_match: new FormControl()
    });
    this.getReclutadores();
@@ -59,7 +59,7 @@ export class MatchCreaeditaComponent implements OnInit{
 
    aceptar(): void {
     this.match.id= this.form.value['id'];
-    this.match.numero_match= this.form.value['numero_match']
+    this.match.codigo_match= this.form.value['codigo_match']
     this.match.confirmacion_match = this.form.value['confirmacion_match']
     this.match.reclutadorId= this.form.value['reclutadorId'];
     this.match.estudianteId = this.form.value['estudianteId'];
@@ -81,7 +81,7 @@ export class MatchCreaeditaComponent implements OnInit{
         })
       }
 
-      this.router.navigate(['Match']);
+      this.router.navigate(['/pages/Match']);
     } else {
       this.mensaje = "Complete todos los campos!";
     }
@@ -92,7 +92,7 @@ export class MatchCreaeditaComponent implements OnInit{
       this.matchService.ListId(this.id).subscribe(data => {
         this.form = new FormGroup({
           id: new FormControl(data.id),
-          numero_match: new FormControl(data.numero_match),
+          codigo_match: new FormControl(data.codigo_match),
           confirmacion_match : new FormControl(data.confirmacion_match),
           reclutadorId: new FormControl(data.reclutador.id),
           requisitoId: new FormControl(data.estudiante.idEstudiante),

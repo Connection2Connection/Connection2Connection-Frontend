@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Calificacion_Estudiante } from '../model/calificacion_estudiante';
@@ -8,18 +8,24 @@ const base_url= environment.base
   providedIn: 'root'
 })
 export class Calificacion_EstudianteService {
-  private url=`${base_url}/calificacion_estudiantes`
+  private url=`${base_url}/Calificacion_Estudiante`
   private listCambio = new Subject<Calificacion_Estudiante[]>()
   private confirmarEliminacion = new Subject<Boolean>()
 
   constructor(private http:HttpClient) { }
 
   List() {
-    return this.http.get<Calificacion_Estudiante[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Calificacion_Estudiante[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   Insert(calificacion_estudiante: Calificacion_Estudiante) {
-    return this.http.post(this.url, calificacion_estudiante)
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, calificacion_estudiante, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   SetList(ListaNueva: Calificacion_Estudiante[]){
@@ -31,15 +37,23 @@ export class Calificacion_EstudianteService {
   }
 
   ListId(id: number){
-    return this.http.get<Calificacion_Estudiante>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Calificacion_Estudiante>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   Update(calificacion_estudiante: Calificacion_Estudiante) {
-    //return this.http.put(this.url + "/" + puesto_trabajo.id, puesto_trabajo);
-    return this.http.put(this.url, calificacion_estudiante)
+    let token = sessionStorage.getItem("token");
+   return this.http.put(this.url, calificacion_estudiante, {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   Delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   GetConfirmDelete(){

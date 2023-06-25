@@ -58,16 +58,18 @@
               </select>
             </div>
 
-            
+
 
             <div class="d-grid gap-2 mt-2">
               <button type="submit" class="btn btn-primary btn-lg" (submit)="registrar()">Guardar</button>
             </div>
+
+            <div class="d-grid gap-2 mt-2" *ngIf="cont>0">
+              <button type="submit" class="btn btn-primary btn-lg" (click)="registrarrol()">Registrar</button>
+            </div>
+
             <p class="mt-3"><a routerLink="/login" style="color: #ff1e57">Volver</a></p>
 
         </form>
-        <div class="d-grid gap-2 mt-2" *ngIf="cont>0">
-            <button type="submit" class="btn btn-primary btn-lg" (click)="registrarrol()">Registrar</button>
-        </div>
     </div>
 </div>

@@ -15,19 +15,16 @@ export class ReclutadorService {
   constructor(private http:HttpClient) { }
 
   List() {
-    return this.http.get<Reclutador[]>(this.url)
+    return this.http.get<Reclutador[]>(this.url);
   }
-
-  Insert(reclutador: Reclutador) {
-    return this.http.post(this.url, reclutador)
+  Insert(reclutador: Reclutador){
+    return this.http.post(this.url,reclutador)
   }
-
   SetList(ListaNueva: Reclutador[]){
-    this.listCambio.next(ListaNueva)
+    this.listCambio.next(ListaNueva);
   }
-
   GetList(){
-    return this.listCambio.asObservable()
+    return this.listCambio.asObservable();
   }
 
   ListId(id: number){

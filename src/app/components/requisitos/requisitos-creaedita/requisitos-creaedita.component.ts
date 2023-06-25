@@ -28,14 +28,14 @@ export class RequisitosCreaeditaComponent implements OnInit {
     })
     this.form = new FormGroup({
       id: new FormControl(),
-      Requisito: new FormControl(),
+      descripcion_Requisito: new FormControl(),
 
     });
   }
   aceptar(): void {
     this.R.id = this.form.value['id'];
-    this.R.Requisito = this.form.value['Requisito'];
-    if (this.form.value['Requisito'].length > 0 ) {
+    this.R.descripcion_Requisito = this.form.value['descripcion_Requisito'];
+    if (1 > 0 ) {
 
       if (this.edicion) {
         //actualice
@@ -53,7 +53,7 @@ export class RequisitosCreaeditaComponent implements OnInit {
         })
       }
 
-      this.router.navigate(['requisitos']);
+      this.router.navigate(['/pages/requisitos']);
     } else {
       this.mensaje = "Complete los campos requeridos!!!";
     }
@@ -64,7 +64,7 @@ export class RequisitosCreaeditaComponent implements OnInit {
       this.rS.listId(this.id).subscribe(data => {
         this.form = new FormGroup({
           id: new FormControl(data.id),
-          Requisito: new FormControl(data.Requisito),
+          descripcion_Requisito: new FormControl(data.descripcion_Requisito),
 
         })
       })

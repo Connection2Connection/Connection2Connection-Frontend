@@ -14,10 +14,10 @@ export class UsuarioService {
   private confirmarEliminacion = new Subject<Boolean>()
   constructor(private http:HttpClient) { }
   list() {
-    return this.http.get<Usuario[]>(this.url)
+    return this.http.get<Usuario[]>(this.url);
   }
   insert(u: Usuario){
-    return this.http.post(this.url, u)
+    return this.http.post(this.url,u)
   }
   setList(ListaNueva: Usuario[]){
     this.listaCambio.next(ListaNueva);
@@ -30,7 +30,7 @@ export class UsuarioService {
     return this.http.get<Usuario>(`${this.url}/${id}`, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
     });
-    
+
   }
   listUsername(name: String) {
     return this.http.get<Usuario>(`${this.url}/username/${name}`)

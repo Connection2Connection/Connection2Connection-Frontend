@@ -76,7 +76,7 @@ export class Calificacion_EstudianteCreaeditaComponent implements OnInit{
         })
       }
 
-      this.router.navigate(['Calificacion_Estudiante']);
+      this.router.navigate(['/pages/Calificacion_Estudiante']);
   }else {
       this.mensaje = "Complete todos los campos!";
     }

@@ -13,6 +13,7 @@ import { LoginService } from 'src/app/service/login.service';
   styleUrls: ['./usuario-listar.component.css']
 })
 export class UsuarioListarComponent implements OnInit {
+
   role:string=""
   lista:Usuario[]=[]
   dataSource: MatTableDataSource<Usuario> =new MatTableDataSource();

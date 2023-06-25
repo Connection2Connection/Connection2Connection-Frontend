@@ -1,5 +1,5 @@
 export class Calificacion{
   id:number =0
-  id_Estudiante: number =0
-  Calificacion: number =0
+  idEstudiante_Calificacion: number =0
+  calificacion_Calificacion: number =0
 }

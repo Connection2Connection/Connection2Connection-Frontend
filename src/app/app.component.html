@@ -33,10 +33,15 @@
       <a mat-tab-link routerLink="/pages/Match" routerLinkActive="active-link">Match</a>
       <a mat-tab-link routerLink="/pages/Calificacion_Estudiante" routerLinkActive="active-link">Calificacion_Estudiante</a>
       <a mat-tab-link routerLink="/pages/Rol" routerLinkActive="active-link">Rol</a>
-      <a mat-tab-link routerLink="/pages/Reporte01" routerLinkActive="active-link">Reporte1</a>
-
-
+      <a mat-tab-link routerLink="/pages/Repositorio" routerLinkActive="active-link">Repositorio</a>
     </nav>
+
+  <nav mat-tab-nav-bar ngClass = "tabs" *ngIf="open">
+    <a mat-tab-link routerLink="/pages/Reporte01" routerLinkActive="active-link">Reporte 1</a>
+    <a mat-tab-link routerLink="/pages/Reporte02" routerLinkActive="active-link">Reporte 2</a>
+
+
+  </nav>
   </div>
 </section>
 

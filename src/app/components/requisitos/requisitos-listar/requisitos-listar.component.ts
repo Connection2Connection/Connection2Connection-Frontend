@@ -5,7 +5,7 @@ import { RequisitoService } from 'src/app/service/requisito.service';
 import { RequisitosDialogoComponent } from './requisitos-dialogo/requisitos-dialogo.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-requisitos-listar',
@@ -14,7 +14,7 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class RequisitosListarComponent implements OnInit
 {
-
+  role:string="";
   lista: Requisito[] = []
   dataSource: MatTableDataSource<Requisito> = new MatTableDataSource();
   idMayor: number = 0
@@ -22,10 +22,12 @@ export class RequisitosListarComponent implements OnInit
   @ViewChild(MatPaginator,{ static:true }) paginator!: MatPaginator;
 
 
-  constructor(private rS: RequisitoService , private dialog: MatDialog) {
+  constructor(private rS: RequisitoService , private dialog: MatDialog, private ls:LoginService) {
 
   }
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
     this.rS.list().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;

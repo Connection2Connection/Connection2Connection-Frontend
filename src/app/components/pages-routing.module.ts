@@ -27,6 +27,9 @@ import { RolCreaeditaComponent } from './rol/rol-creaedita/rol-creaedita.compone
 import { MatchComponent } from './match/match.component';
 import { MatchCreaeditaComponent } from './match/match-creaedita/match-creaedita.component';
 import { Reporte01Component } from './reportes/reporte01/reporte01.component';
+import { RepositorioComponent } from './repositorio/repositorio.component';
+import { RepositorioCreaeditaComponent } from './repositorio/repositorio-creaedita/repositorio-creaedita.component';
+import { Reporte02Component } from './reportes/reporte02/reporte02.component';
 
 const routes: Routes = [
   {
@@ -112,7 +115,16 @@ const routes: Routes = [
     ],canActivate:[GuardService]
   },
   {
+    path: 'Repositorio', component: RepositorioComponent, children: [
+      { path: 'Crear', component: RepositorioCreaeditaComponent},
+      { path: 'Edicion/:id', component: RepositorioCreaeditaComponent}
+    ],canActivate:[GuardService]
+  },
+  {
     path: 'Reporte01', component: Reporte01Component, canActivate:[GuardService]
+  },
+  {
+    path: 'Reporte02', component: Reporte02Component, canActivate:[GuardService]
   }
 ]
 

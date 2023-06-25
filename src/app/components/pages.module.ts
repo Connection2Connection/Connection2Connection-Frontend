@@ -66,6 +66,12 @@ import { MatchDialogoComponent } from './match/match-listar/match-dialogo/match-
 import { MatchCreaeditaComponent } from './match/match-creaedita/match-creaedita.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { Reporte01Component } from './reportes/reporte01/reporte01.component';
+import { RepositorioComponent } from './repositorio/repositorio.component';
+import { RepositorioListarComponent } from './repositorio/repositorio-listar/repositorio-listar.component';
+import { RepositorioDialogoComponent } from './repositorio/repositorio-listar/repositorio-dialogo/repositorio-dialogo.component';
+import { RepositorioCreaeditaComponent } from './repositorio/repositorio-creaedita/repositorio-creaedita.component';
+import { Reporte02Component } from './reportes/reporte02/reporte02.component';
+
 
 
 
@@ -120,7 +126,12 @@ import { Reporte01Component } from './reportes/reporte01/reporte01.component';
     RolDialogoComponent,
     RolCreaeditaComponent,
     ReportesComponent,
-    Reporte01Component
+    Reporte01Component,
+    RepositorioComponent,
+    RepositorioListarComponent,
+    RepositorioDialogoComponent,
+    RepositorioCreaeditaComponent,
+    Reporte02Component
   ],
   imports: [
     CommonModule,

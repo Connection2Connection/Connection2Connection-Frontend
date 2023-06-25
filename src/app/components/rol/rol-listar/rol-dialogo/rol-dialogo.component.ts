@@ -12,9 +12,5 @@ export class RolDialogoComponent implements OnInit {
   constructor(private rolService: RolService,
     private dialogRef: MatDialogRef<RolDialogoComponent>) { }
   ngOnInit(): void {}
-    confirmar(estado: boolean){
-      this.rolService.SetConfirmDelete(estado);
-      this.dialogRef.close();
-    }
 
 }
