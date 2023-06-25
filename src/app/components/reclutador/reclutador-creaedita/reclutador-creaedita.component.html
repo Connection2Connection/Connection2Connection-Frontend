@@ -24,13 +24,18 @@
         <input matInput required placeholder="Descripcion" formControlName="descripcion_Reclutador">
       </mat-form-field>
       <br>
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="fill">
         <mat-label>Empresa_id:</mat-label>
-        <input matInput required placeholder="Ingrese id empresa" formControlName="empresaId">
+        <mat-select formControlName="empresaId" [(value)]="idEmpresaSeleccionado" required>
+          <mat-option *ngFor="let e of listae" [value]="e.id">
+            {{e.nombre_Empresa}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
       <br>
+      <br>
       <mat-form-field class="example-full-width">
-        <mat-label>Usuario_id:</mat-label>
+        <mat-label>Usuario:</mat-label>
         <input matInput required placeholder="Ingrese id usuario" formControlName="usuarioId">
       </mat-form-field>
       <br>

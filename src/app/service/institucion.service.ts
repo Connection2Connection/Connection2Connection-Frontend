@@ -15,10 +15,7 @@ export class InstitucionService {
   constructor(private http:HttpClient) { }
 
   List() {
-    let token = sessionStorage.getItem("token");
-    return this.http.get<Institucion_Educativa[]>(this.url, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-    });
+    return this.http.get<Institucion_Educativa[]>(this.url)
   }
 
   Insert(institucion: Institucion_Educativa) {

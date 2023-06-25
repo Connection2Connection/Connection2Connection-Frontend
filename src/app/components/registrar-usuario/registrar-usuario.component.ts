@@ -97,10 +97,10 @@ export class RegistrarUsuarioComponent implements OnInit {
       this.router.navigate(['login']);
     }
     if(this.rol=="ESTUDIANTE"){
-      this.router.navigate(['pages/estudiantes/nuevo']);
+      this.router.navigate(['/pages/estudiantes/nuevo',this.u.username]);
     }
     if(this.rol=="RECLUTADOR"){
-      this.router.navigate(['pages/Reclutadores/Crear']);
+      this.router.navigate(['pages/Reclutadores/Crear',this.u.username]);
     }
       }
     })
